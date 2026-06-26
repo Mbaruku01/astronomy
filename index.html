@@ -92,7 +92,7 @@
         <main class="flex-1 p-8 overflow-y-auto">
             <div class="mb-6 flex justify-between items-center border-b border-white/5 pb-4">
                 <p class="text-xs text-zinc-400 font-medium uppercase tracking-wider" id="recordCount">Evaluating records...</p>
-                <div class="text-[11px] text-zinc-500 italic hidden sm:block"><i class="fa-solid fa-arrow-pointer mr-1"></i> Click an entry to review complete ethnographic profiling details.</div>
+                <div class="text-[11px] text-zinc-500 italic hidden sm:block"><i class="fa-solid fa-arrow-pointer mr-1"></i> Use the interface links to examine full parameters.</div>
             </div>
             
             <div id="archiveGrid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
@@ -116,7 +116,6 @@
     </div>
 
     <script>
-        // High-fidelity dynamic repository featuring 10 distinct traditional Tanzanian entries
         const tanzanianAstronomyData = [
             { id: "kilimia", traditionalName: "Kilimia", scientificMapping: "Pleiades Cluster (Seven Sisters)", tribes: ["Sukuma", "Chaga", "Nyamwezi"], region: "Mwanza", translation: "The Ploughing/Cultivating Stars", primaryUsage: "Agricultural Forecasting & Rain Tracking", lore: "Historically across Central and Northern Tanzania, the visibility of Kilimia on the eastern horizon just before dawn signaled the precise time to clear fields for the planting cycle. Its positioning determined whether the community could expect heavy downpours or a short rainy season.", researcherNotes: "Documented through oral narratives of community elders. Cross-referenced across multiple Bantu linguistic roots where '-lima' denotes cultivation actions.", icon: "fa-seedling" },
             { id: "kakanyasila", traditionalName: "Kakanyasila", scientificMapping: "Orion's Belt", tribes: ["Haya"], region: "Kagera", translation: "The Three Frontier Guardians", primaryUsage: "Night Navigation & Timekeeping", lore: "In early Haya traditions, these three perfectly aligned stars represented cosmic hunters or guardians pacing the night sky. Travelers and lake fishermen used its zenith alignment to map hourly intervals across deep night expeditions.", researcherNotes: "Field entry verified via traditional council elders in Bukoba rural regions. Tracks closely with early defense and hunting lore.", icon: "fa-shield-halved" },
@@ -124,7 +123,7 @@
             { id: "ndondoki", traditionalName: "Ndondoki", scientificMapping: "Sirius (The Dog Star)", tribes: ["Makonde"], region: "Lindi", translation: "The High Crimson Watcher", primaryUsage: "Maritime Tidal Alignment & Coastal Tracking", lore: "Positioned close to the southeastern coast, the highly vibrant morning flashing of this celestial body assisted coastal fishing communities in anticipating rapid low-tide windows ideal for deep reef foraging and canoe deployment.", researcherNotes: "Sourced through community group mapping interviews in Lindi coastal zones. Connected deeply with maritime oral histories.", icon: "fa-water" },
             { id: "ngazi", traditionalName: "Ngazi ya Cosmic", scientificMapping: "Orion Quadrant Asterisms", tribes: ["Hehe"], region: "Iringa", translation: "The Ancestral Ladder", primaryUsage: "Tribal Initiation Rites & Lineage History", lore: "In traditional Hehe structures around the Southern Highlands, this alignment represents an ascending link between the physical village and spiritual realms. It served as a cosmic back-drop for generational governance transitions.", researcherNotes: "Acquired via elders in Iringa rural sectors. Heavily tied to military camp structural alignments during historical resistance eras.", icon: "fa-stairs" },
             { id: "mtondo", traditionalName: "Mtondo", scientificMapping: "Southern Cross (Crux)", tribes: ["Gogo"], region: "Dodoma", translation: "The Central Night Anchor", primaryUsage: "Cross-Country Vector Navigation", lore: "Traversing the semi-arid tracks of central Tanzania, Gogo traveling merchants relied heavily on the stable orientation of this alignment. It offered dependable compass headings during long, cool overnight supply treks.", researcherNotes: "Archived through local history preservation interviews in Dodoma rural districts.", icon: "fa-compass" },
-            { id: "isanga", traditionalName: "Isanga Lya Mkuki", scientificMapping: "Scorpius Tail Constellation", tribes: ["Fipa"], region: "Rukwa", translation: "The Poised Hunting Spear", usage: "Wildlife Movement Mapping", primaryUsage: "Seasonal Hunting Adjustments", lore: "For the Fipa people of southwest Tanzania, the steep upward curvature of these star clusters mimics a raised weapon. Its pitch relative to the horizon signaled the migration spikes of large plateau game animals.", researcherNotes: "Sourced near Sumbawanga plateau region records.", icon: "fa-location-crosshairs" },
+            { id: "isanga", traditionalName: "Isanga Lya Mkuki", scientificMapping: "Scorpius Tail Constellation", tribes: ["Fipa"], region: "Rukwa", translation: "The Poised Hunting Spear", primaryUsage: "Seasonal Hunting Adjustments", lore: "For the Fipa people of southwest Tanzania, the steep upward curvature of these star clusters mimics a raised weapon. Its pitch relative to the horizon signaled the migration spikes of large plateau game animals.", researcherNotes: "Sourced near Sumbawanga plateau region records.", icon: "fa-location-crosshairs" },
             { id: "shila", traditionalName: "Shila", scientificMapping: "Venus (Morning & Evening Star Phase)", tribes: ["Zigua"], region: "Tanga", translation: "The Wandering Bride", primaryUsage: "Community Festival Planning", lore: "The dual morning and evening movements of this vivid body were tracked strictly by Zigua tribal matriarchs. Its specific proximity thresholds designated structural times for intra-village marriage unions and dry-season dances.", researcherNotes: "Verified via cultural data records in Handeni.", icon: "fa-ring" },
             { id: "nandala", traditionalName: "Nandala", scientificMapping: "Ursa Major (Big Dipper Asterism)", tribes: ["Ha"], region: "Kigoma", translation: "The Hanging Water Gourd", primaryUsage: "Hydrological & Drought Forecasting", lore: "Settled near Lake Tanganyika, the Ha community tracked the tipping basin shape of this alignment. An extreme horizon inversion indicated shifting wind patterns that brought either severe dry fronts or immense catchment rains.", researcherNotes: "Preserved through community documentation projects in Kigoma.", icon: "fa-bucket" },
             { id: "chimwela", traditionalName: "Chimwela", scientificMapping: "Alpha Centauri Pairings", tribes: ["Luguru"], region: "Morogoro", translation: "The Wind Bringer", primaryUsage: "Atmospheric Protection prep", lore: "High along the Uluguru mountains, the bright flashing properties of this star group forewarned steep high-altitude atmospheric adjustments, reminding villages to structurally reinforce grain reserves against incoming monsoons.", researcherNotes: "Acquired through mountain community research cycles.", icon: "fa-wind" }
@@ -155,9 +154,9 @@
             
             data.forEach(item => {
                 const card = document.createElement('div');
-                card.className = "ios-glass-card rounded-2xl p-6 flex flex-col justify-between cursor-pointer transition-all duration-300 transform group";
-                card.onclick = () => activateStudyPlacard(item);
+                card.className = "ios-glass-card rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 transform group";
                 
+                // Clicking anywhere on the card or the targeted link will process the dynamic element
                 card.innerHTML = `
                     <div>
                         <div class="flex justify-between items-start gap-2 mb-4">
@@ -178,12 +177,25 @@
                         </p>
                     </div>
                     
-                    <div class="border-t border-white/5 pt-3 mt-2 space-y-1.5 text-[11px]">
-                        <div class="flex justify-between"><span class="text-zinc-500">Associated Tribes:</span> <span class="font-medium text-zinc-300">${item.tribes.join(', ')}</span></div>
-                        <div class="flex justify-between"><span class="text-zinc-500">Western Mapping:</span> <span class="italic text-zinc-400 font-mono text-[10px]">${item.scientificMapping}</span></div>
+                    <div>
+                        <div class="border-t border-white/5 pt-3 mb-4 space-y-1.5 text-[11px]">
+                            <div class="flex justify-between"><span class="text-zinc-500">Associated Tribes:</span> <span class="font-medium text-zinc-300">${item.tribes.join(', ')}</span></div>
+                            <div class="flex justify-between"><span class="text-zinc-500">Western Mapping:</span> <span class="italic text-zinc-400 font-mono text-[10px]">${item.scientificMapping}</span></div>
+                        </div>
+                        
+                        <a href="#view-${item.id}" id="btn-${item.id}" class="w-full inline-flex items-center justify-between px-4 py-2.5 text-xs font-medium text-white bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:border-[#C5A880]/50 transition-all group/btn">
+                            <span>View Constellation</span>
+                            <i class="fa-solid fa-arrow-right text-[10px] text-zinc-400 group-hover/btn:translate-x-0.5 group-hover/btn:text-[#C5A880] transition-all"></i>
+                        </a>
                     </div>
                 `;
+                
+                // Bind trigger states cleanly
                 grid.appendChild(card);
+                document.getElementById(`btn-${item.id}`).addEventListener('click', (e) => {
+                    e.preventDefault(); // Prevents jumping on prototype canvas
+                    activateStudyPlacard(item);
+                });
             });
         }
 
