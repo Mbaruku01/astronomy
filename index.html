@@ -73,376 +73,484 @@
         </nav>
     </div>
 
-    <!-- 1. MODULE: HOME / HERO SECTION WITH IMMERSIVE BACKGROUND -->
     <section id="home" class="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-slate-950 py-32">
         
-        <!-- Immersive Background Image & Dark Overlay Matrix -->
         <div class="absolute inset-0 z-0 pointer-events-none">
             <img src="pic/hero.png" alt="Tanzanian Cultural Landscape" class="w-full h-full object-cover object-center scale-105 animate-[fadeIn_1.5s_ease-out]">
-            <!-- Vignette & Contrast Overlay Layers for Text Clarity -->
             <div class="absolute inset-0 bg-slate-950/50 mix-blend-multiply"></div>
             <div class="absolute inset-0 bg-gradient-to-b from-slate-950/30 via-transparent to-slate-50/10 z-10"></div>
         </div>
         
         <div class="relative z-20 text-center px-6 max-w-4xl mx-auto flex flex-col justify-center items-center">
             <p class="text-xs tracking-[0.45em] text-amber-400 uppercase mb-6 font-bold italic">
-                Tanzanian Astronomical Heritage
+                Tanzanian Traditional Astronomy
             </p>
             <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight text-white mb-8 max-w-3xl drop-shadow-sm">
-                Archiving Thousands of Years of East African Skywatching
+                Sharing Thousands of Years of East African Skywatching
             </h1>
             <p class="text-sm md:text-base text-slate-200 max-w-2xl mx-auto leading-relaxed font-light mb-10 drop-shadow-sm">
-                An open-source digital space mapping historical star navigation records, archeological solar monoliths, and indigenous starlore collections across Tanzania.
+                An open digital space to discover historical star navigation records, ancient sun-watching sites, and traditional starlore collections across Tanzania.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center w-full sm:w-auto">
                 <a href="#database-section" class="px-8 py-3.5 rounded-full bg-amber-600 hover:bg-amber-700 text-slate-950 font-bold text-xs uppercase tracking-widest shadow-md transition-all w-full sm:w-auto text-center">
-                    Explore Database
+                    Explore Heritage
                 </a>
                 <a href="#map-section" class="px-8 py-3.5 rounded-full border border-white/40 hover:border-amber-400 bg-white/10 backdrop-blur-sm text-white hover:text-amber-400 font-bold text-xs uppercase tracking-widest transition-all w-full sm:w-auto text-center">
-                    View Matrix Map
+                    View Interactive Map
                 </a>
             </div>
         </div>
         
-        <!-- Absolute Bottom Layout Indicators -->
         <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 hidden md:flex flex-col items-center gap-2">
             <span class="text-[9px] tracking-[0.45em] uppercase text-amber-400 font-bold animate-pulse">Scroll Down</span>
             <div class="w-[1px] h-10 bg-gradient-to-b from-amber-400 to-transparent"></div>
         </div>
     </section>
 
-    <!-- 2. MODULE: GEOSPATIAL REGISTRY & SIGNIFICANCE (MAGAZINE STYLE) -->
-    <section id="map-section" class="max-w-7xl mx-auto px-6 lg:px-8 py-24 scroll-mt-10">
+    <section id="map-section" class="max-w-3xl mx-auto px-6 py-24 scroll-mt-10">
         
-        <!-- Top Editorial Block -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 border-b border-slate-200 pb-16 mb-16">
-            <div class="lg:col-span-4">
-                <p class="text-[10px] tracking-widest uppercase font-bold text-amber-700 mb-2">Geospatial Mapping</p>
-                <h2 class="text-3xl font-black text-slate-900 uppercase tracking-tight leading-none">The Geospatial<br class="hidden lg:block"/> Mapping</h2>
-            </div>
-            <div class="lg:col-span-8 flex items-center">
-                <p class="font-serif text-lg md:text-xl text-slate-700 leading-relaxed font-light">
-                    A raw spatial data index anchoring ancient Tanzanian star navigation networks, sacred landmarks, and solar alignments to absolute, verified coordinates.
-                </p>
-            </div>
+        <div class="mb-12">
+            <p class="text-[10px] tracking-[0.3em] uppercase font-bold text-amber-700 mb-2">Interactive Heritage Map</p>
+            <h2 class="text-3xl font-black text-slate-900 uppercase tracking-tight">
+                The Interactive Heritage Map
+            </h2>
         </div>
 
-        <!-- Text Breakdown Columns with Left Borders -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 mb-20">
+        <div class="space-y-6 text-slate-600 text-sm md:text-base leading-relaxed font-light">
+            <p>
+                Our interactive map helps visitors discover important places across Tanzania where communities observed and studied the night sky. By bringing together the exact locations where early societies looked to the stars, this lasting record connects historical landmarks to the natural movement of the stars and planets.
+            </p>
             
-            <!-- Insight Node 1 -->
-            <div class="border-l border-amber-600/30 pl-6 space-y-4">
-                <span class="font-mono text-xs tracking-widest font-black text-amber-700 block">01 : CONTENT</span>
-                <h3 class="text-xs font-bold uppercase tracking-widest text-slate-900">What the Matrix Maps</h3>
-                <p class="text-xs md:text-sm text-slate-600 leading-relaxed font-light">
-                    It registers historical coordinates across premier cultural nodes, including the 16-ton nickel-iron Mbozi Meteorite, the protected solstice panels of Kondoa Irangi, and pristine observation outposts.
-                </p>
-            </div>
-
-            <!-- Insight Node 2 -->
-            <div class="border-l border-amber-600/30 pl-6 space-y-4">
-                <span class="font-mono text-xs tracking-widest font-black text-amber-700 block">02 : CULTURAL IMPORT</span>
-                <h3 class="text-xs font-bold uppercase tracking-widest text-slate-900">Historical Significance</h3>
-                <p class="text-xs md:text-sm text-slate-600 leading-relaxed font-light">
-                    Anchoring physical architectures directly to dynamic geographic metrics offers empirical proof of advanced indigenous calculation matrices, linking structural rock alignments to cyclical celestial movements.
-                </p>
-            </div>
-
-            <!-- Insight Node 3 -->
-            <div class="border-l border-amber-600/30 pl-6 space-y-4">
-                <span class="font-mono text-xs tracking-widest font-black text-amber-700 block">03 : MODERN APPLICATION</span>
-                <h3 class="text-xs font-bold uppercase tracking-widest text-slate-900">Scientific Integration</h3>
-                <p class="text-xs md:text-sm text-slate-600 leading-relaxed font-light">
-                    Acts as an active diagnostic dataset for global field teams. By monitoring environmental light-pollution vectors over old tracking hubs, it informs long-term conservation targets for dark sky environments.
-                </p>
-            </div>
+            <p>
+                Explore important heritage sites across Tanzania, including the Mbozi Meteorite, Kondoa Irangi rock art, and traditional sky observation locations. This clear system offers real evidence of the deep astronomical knowledge and understanding shared by early African societies.
+            </p>
             
+            <p>
+                Beyond documenting cultural history, this map serves as a living guide for modern researchers. By tracking changing weather patterns and city light pollution over these historical locations, we can find key ways to protect our beautiful night skies for future generations.
+            </p>
         </div>
 
-        <!-- Integrated Call-to-Action Link Bar -->
-        <div class="border-t border-slate-200 pt-12 flex flex-col sm:flex-row items-center justify-between gap-6">
-            <div class="flex items-center gap-4 text-slate-400">
-                <i class="fa-solid fa-earth-africa text-xl text-amber-700/80"></i>
-                <p class="text-[10px] tracking-wider uppercase font-bold">Dynamic Spatial Canvas Layer Active</p>
+        <div class="mt-12 pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3 text-slate-400">
+                <i class="fa-solid fa-earth-africa text-base text-amber-700/80"></i>
+                <p class="text-[10px] tracking-wider uppercase font-bold font-mono">[ Heritage Map Ready ]</p>
             </div>
             <a href="map.html" target="_blank" class="px-8 py-3.5 rounded-full bg-slate-900 hover:bg-amber-600 text-white hover:text-slate-950 font-bold text-xs uppercase tracking-widest shadow-sm transition-all duration-300 flex items-center gap-3 w-full sm:w-auto justify-center">
-                <span>Launch Interactive Map</span> <i class="fa-solid fa-arrow-right-long text-xs"></i>
+                <span>Open Interactive Map</span>
+                <i class="fa-solid fa-arrow-right-long text-xs"></i>
             </a>
         </div>
         
     </section>
 
-    <!-- 3. MODULE: HERITAGE DATABASE -->
-    <section id="database-section" class="bg-white border-y border-slate-200 py-24 scroll-mt-10">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-                <div class="max-w-2xl">
-                    <p class="text-[10px] tracking-widest uppercase font-bold text-amber-700 mb-2">Open Access Registry</p>
-                    <h2 class="text-2xl md:text-3xl font-black text-slate-900 uppercase tracking-tight">Heritage Database</h2>
-                    <p class="text-sm text-slate-600 mt-2">Filter and query public archives on historical physical artifacts and sky tracking monuments.</p>
-                </div>
-                <div class="relative w-full md:w-80 shrink-0">
-                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-slate-400 text-xs"></i>
-                    <input type="text" id="searchBar" placeholder="FILTER ENTRIES..." class="w-full bg-slate-50 border border-slate-200 rounded-full pl-10 pr-4 py-3 text-xs tracking-wider font-bold text-slate-800 focus:outline-none focus:border-amber-600 focus:bg-white transition-all placeholder-slate-400"/>
-                </div>
+    <section id="database-section" class="bg-white border-t border-b border-slate-200 py-24 scroll-mt-10">
+        <div class="max-w-3xl mx-auto px-6">
+            
+            <div class="mb-12">
+                <p class="text-[10px] tracking-[0.3em] uppercase font-bold text-amber-700 mb-2">Open Heritage Collection</p>
+                <h2 class="text-3xl font-black text-slate-900 uppercase tracking-tight">
+                    Explore the Heritage Collection
+                </h2>
             </div>
-            <div id="databaseGrid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Injected programmatically by JavaScript loop -->
-            </div>
-        </div>
-    </section>
 
-    <!-- 4. MODULE: INDIGENOUS ASTRONOMY -->
-    <section id="indigenous-section" class="max-w-7xl mx-auto px-6 lg:px-8 py-24 scroll-mt-10">
-        <div class="max-w-3xl mb-12">
-            <p class="text-[10px] tracking-widest uppercase font-bold text-amber-700 mb-2">Ethno-Astronomy Records</p>
-            <h2 class="text-2xl md:text-3xl font-black text-slate-900 uppercase tracking-tight">Indigenous Astronomy</h2>
-            <p class="text-sm text-slate-600 mt-2">Oral calendar frameworks, localized starlore histories, and deep traditional practices across diverse cultures.</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-amber-700"><i class="fa-solid fa-compass text-xs"></i></div>
-                    <h3 class="text-sm font-bold uppercase tracking-wider text-slate-900">Swahili Maritime Navigation (Uramali)</h3>
-                </div>
-                <p class="text-xs md:text-sm text-slate-600 leading-relaxed font-light">
-                    Coastal dhow captains historic mapping arrays across the Western Indian Ocean, referencing seasonal monsoon winds against fixed alignments of Southern constellations.
+            <div class="space-y-6 text-slate-600 text-sm md:text-base leading-relaxed font-light">
+                <p>
+                    This digital collection brings together generations of traditional knowledge and stories about East Africa's night sky in one place. It preserves spoken histories, traditional sky stories, and ancient observations by saving them safely online. By doing so, this collection protects invaluable cultural wealth from disappearing over time.
+                </p>
+                
+                <p>
+                    Inside this library, you will find easy search tools designed to explore this information easily. Users can instantly filter records to look up traditional seasonal farming calendars, specific locations of ancient observation sites, and the distinct names given to constellations across different local languages.
+                </p>
+                
+                <p>
+                    Built directly for researchers, students, and visitors, this collection helps everyone learn how early communities across Africa understood the night sky. By sharing these traditional records openly online, it helps connect ancient cultural wisdom with global astronomy history.
                 </p>
             </div>
-            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-amber-700"><i class="fa-solid fa-calendar-days text-xs"></i></div>
-                    <h3 class="text-sm font-bold uppercase tracking-wider text-slate-900">The Maasai Cosmic Calendar</h3>
-                </div>
-                <p class="text-xs md:text-sm text-slate-600 leading-relaxed font-light">
-                    Strategic calculations tracking *Kilimia* (The Pleiades cluster) relative to lunar phases to construct highly reliable nomadic migration vectors for livestock herds.
-                </p>
-            </div>
-        </div>
-    </section>
 
-    <!-- 5. MODULE: DARK SKY OBSERVATORY -->
-    <section id="observatory-section" class="bg-white border-t border-slate-200 py-24 scroll-mt-10">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="max-w-3xl mb-12">
-                <p class="text-[10px] tracking-widest uppercase font-bold text-amber-700 mb-2">Ecology & Preservation</p>
-                <h2 class="text-2xl md:text-3xl font-black text-slate-900 uppercase tracking-tight">Dark Sky Observatory</h2>
-                <p class="text-sm text-slate-600 mt-2">Protecting natural low light trespass reserves to drive sustainable scientific astro-tourism.</p>
-            </div>
-            <div class="p-8 bg-slate-50 border border-slate-200 rounded-2xl flex flex-col md:flex-row gap-6 items-start">
-                <div class="p-3 bg-white rounded-xl border border-slate-200 text-amber-700 shrink-0"><i class="fa-solid fa-moon text-lg"></i></div>
-                <div>
-                    <h4 class="text-sm font-bold uppercase tracking-wider text-slate-900">Serengeti & Ruaha Dark Sky Zones</h4>
-                    <p class="text-xs md:text-sm text-slate-600 mt-2 leading-relaxed font-light">
-                        Implementing unified protective frameworks across conservation areas to eliminate city glow spill, keeping deep space observation profiles clear for ecological and tourism purposes.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. MODULE: RESEARCH REPOSITORY -->
-    <section id="repository-section" class="max-w-7xl mx-auto px-6 lg:px-8 py-24 scroll-mt-10">
-        <div class="max-w-3xl mb-12">
-            <p class="text-[10px] tracking-widest uppercase font-bold text-amber-700 mb-2">Academic Literature</p>
-            <h2 class="text-2xl md:text-3xl font-black text-slate-900 uppercase tracking-tight">Research Repository</h2>
-            <p class="text-sm text-slate-600 mt-2">A centralized index hosting open peer-reviewed papers, archeological evaluations, and ethno-astronomical field assessments.</p>
-        </div>
-        <div class="overflow-hidden bg-white border border-slate-200 rounded-2xl shadow-sm">
-            <table class="w-full text-left border-collapse text-xs md:text-sm">
-                <thead>
-                    <tr class="border-b border-slate-200 bg-slate-50 text-slate-500 font-bold uppercase tracking-wider text-[10px]">
-                        <th class="p-4 md:p-5">Document / Entry Title</th>
-                        <th class="p-4 md:p-5">Lead Researcher</th>
-                        <th class="p-4 md:p-5 text-right">Action</th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-slate-100 font-light text-slate-600">
-                    <tr>
-                        <td class="p-4 md:p-5 font-medium text-slate-900 uppercase tracking-tight">Ethno-astronomical Frameworks in Central Tanzania</td>
-                        <td class="p-4 md:p-5">Dr. J. Mrema (2024)</td>
-                        <td class="p-4 md:p-5 text-right"><a href="#" class="text-amber-700 hover:text-amber-800 font-bold uppercase tracking-widest text-[10px]"><i class="fa-solid fa-file-pdf mr-1"></i> PDF</a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-    <!-- 7. MODULE: MULTIMEDIA ARCHIVE -->
-    <section id="multimedia-section" class="bg-white border-y border-slate-200 py-24 scroll-mt-10">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="max-w-3xl mb-12">
-                <p class="text-[10px] tracking-widest uppercase font-bold text-amber-700 mb-2">Digital Vault</p>
-                <h2 class="text-2xl md:text-3xl font-black text-slate-900 uppercase tracking-tight">Multimedia Archive</h2>
-                <p class="text-sm text-slate-600 mt-2">Visual catalogs, structural photogrammetry maps, and field interviews documenting sky traditions.</p>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                <div class="aspect-video bg-slate-50 border border-slate-200 rounded-xl flex flex-col items-center justify-center text-[10px] uppercase font-bold tracking-widest text-slate-400 gap-2">
-                    <i class="fa-solid fa-volume-high text-slate-300 text-lg"></i> Oral Recording Logs
-                </div>
-                <div class="aspect-video bg-slate-50 border border-slate-200 rounded-xl flex flex-col items-center justify-center text-[10px] uppercase font-bold tracking-widest text-slate-400 gap-2">
-                    <i class="fa-solid fa-images text-slate-300 text-lg"></i> Astrophotography Deck
-                </div>
-                <div class="aspect-video bg-slate-50 border border-slate-200 rounded-xl flex flex-col items-center justify-center text-[10px] uppercase font-bold tracking-widest text-slate-400 gap-2">
-                    <i class="fa-solid fa-video text-slate-300 text-lg"></i> Video Field Walks
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 8. MODULE: EDUCATION CENTRE -->
-    <section id="education-section" class="max-w-7xl mx-auto px-6 lg:px-8 py-24 scroll-mt-10">
-        <div class="max-w-3xl mb-12">
-            <p class="text-[10px] tracking-widest uppercase font-bold text-amber-700 mb-2">Linguistic & STEM Toolkits</p>
-            <h2 class="text-2xl md:text-3xl font-black text-slate-900 uppercase tracking-tight">Education Centre</h2>
-            <p class="text-sm text-slate-600 mt-2">Swahili language space physics translations and learning modules designed for local institutions.</p>
-        </div>
-        <div class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm">
-            <h3 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6">Astronomical Nomenclature (Kiswahili Mapping)</h3>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs font-bold tracking-tight">
-                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
-                    <span class="block text-[10px] text-slate-400 uppercase tracking-wider font-semibold mb-1">Galaxy</span>
-                    <span class="text-slate-900 uppercase font-mono tracking-wider">Galaksi</span>
-                </div>
-                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
-                    <span class="block text-[10px] text-slate-400 uppercase tracking-wider font-semibold mb-1">Meteorite</span>
-                    <span class="text-slate-900 uppercase font-mono tracking-wider">Kimondo</span>
-                </div>
-                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
-                    <span class="block text-[10px] text-slate-400 uppercase tracking-wider font-semibold mb-1">Star</span>
-                    <span class="text-slate-900 uppercase font-mono tracking-wider">Nyota</span>
-                </div>
-                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
-                    <span class="block text-[10px] text-slate-400 uppercase tracking-wider font-semibold mb-1">Telescope</span>
-                    <span class="text-slate-900 uppercase font-mono tracking-wider">Darubini</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 9. MODULE: EVENTS -->
-    <section id="events-section" class="bg-white border-y border-slate-200 py-24 scroll-mt-10">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="max-w-3xl mb-12">
-                <p class="text-[10px] tracking-widest uppercase font-bold text-amber-700 mb-2">Public Gatherings</p>
-                <h2 class="text-2xl md:text-3xl font-black text-slate-900 uppercase tracking-tight">Events</h2>
-                <p class="text-sm text-slate-600 mt-2">Community stargazing events, open telescope sessions, and observation trackers.</p>
-            </div>
-            <div class="border border-slate-200 bg-slate-50 p-6 rounded-xl flex justify-between items-center text-xs font-bold shadow-inner">
-                <div class="flex items-center gap-4">
-                    <i class="fa-solid fa-satellite-dish text-amber-700 text-sm"></i>
-                    <div>
-                        <span class="text-[9px] text-amber-700 uppercase tracking-widest font-black">September 2026</span>
-                        <h4 class="text-slate-900 uppercase tracking-wider mt-1">Arusha Open Telescope Field Viewing Session</h4>
-                    </div>
-                </div>
-                <span class="text-[9px] bg-white border border-slate-200 text-slate-500 px-4 py-2 rounded-full uppercase tracking-widest">Public Event</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- 10. MODULE: DATA CENTRE -->
-    <section id="datacenter-section" class="max-w-7xl mx-auto px-6 lg:px-8 py-24 scroll-mt-10">
-        <div class="max-w-3xl mb-12">
-            <p class="text-[10px] tracking-widest uppercase font-bold text-amber-700 mb-2">Scientific Metrics</p>
-            <h2 class="text-2xl md:text-3xl font-black text-slate-900 uppercase tracking-tight">Data Centre</h2>
-            <p class="text-sm text-slate-600 mt-2">Atmospheric clarity monitoring and dark sky measurement logging indexes.</p>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center font-mono">
-            <div class="p-6 bg-white border border-slate-200 rounded-xl shadow-sm">
-                <span class="block text-2xl font-black text-slate-900 tracking-wider">84%</span>
-                <span class="text-[9px] uppercase tracking-widest text-slate-400 font-sans font-bold block mt-2">Clear Skies Average (Highlands)</span>
-            </div>
-            <div class="p-6 bg-white border border-slate-200 rounded-xl shadow-sm">
-                <span class="block text-2xl font-black text-slate-900 tracking-wider">1.2"</span>
-                <span class="text-[9px] uppercase tracking-widest text-slate-400 font-sans font-bold block mt-2">Atmospheric Seeing Scale</span>
-            </div>
-            <div class="p-6 bg-white border border-slate-200 rounded-xl shadow-sm">
-                <span class="block text-2xl font-black text-slate-900 tracking-wider">0.00 lx</span>
-                <span class="text-[9px] uppercase tracking-widest text-slate-400 font-sans font-bold block mt-2">Artificial Light Zenith Scale</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- 11. MODULE: COMMUNITY -->
-    <section id="community-section" class="bg-white border-t border-slate-200 py-24 scroll-mt-10">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="max-w-3xl mb-12">
-                <p class="text-[10px] tracking-widest uppercase font-bold text-amber-700 mb-2">Collaborative Knowledge Hub</p>
-                <h2 class="text-2xl md:text-3xl font-black text-slate-900 uppercase tracking-tight">Community Exchange</h2>
-                <p class="text-sm text-slate-600 mt-2">An open workspace enabling direct connection between field researchers and citizens tracking disappearing traditions.</p>
-            </div>
-            <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 text-center max-w-2xl mx-auto shadow-inner">
-                <p class="text-xs md:text-sm text-slate-600 mb-6 font-light">
-                    Have knowledge of specific sky mythology names or ancient celestial references from your local elders? Securely route details directly into our public processing queue.
-                </p>
-                <a href="mailto:contribute@aahp-tanzania.org" class="inline-block bg-slate-900 hover:bg-slate-800 text-[10px] font-bold tracking-widest uppercase text-white px-6 py-3.5 rounded-full transition-all">
-                    <i class="fa-solid fa-paper-plane mr-2"></i> Route Submission
+            <div class="mt-12 pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-6">
+                <span class="text-[10px] font-mono tracking-wider text-slate-400 uppercase">[ Heritage Collection Ready ]</span>
+                <a href="database.html" target="_blank" class="px-8 py-3.5 rounded-full bg-slate-900 hover:bg-amber-600 text-white hover:text-slate-950 font-bold text-xs uppercase tracking-widest shadow-sm transition-all duration-300 flex items-center gap-3 w-full sm:w-auto justify-center">
+                    <span>Explore the Collection</span>
+                    <i class="fa-solid fa-arrow-right-long text-xs"></i>
                 </a>
             </div>
+
         </div>
     </section>
 
-    <!-- 12. MODULE: ABOUT -->
-    <section id="about-section" class="max-w-7xl mx-auto px-6 lg:px-8 py-24 scroll-mt-10">
-        <div class="max-w-3xl">
-            <p class="text-[10px] tracking-widest uppercase font-bold text-amber-700 mb-2">Mission Architecture</p>
-            <h2 class="text-2xl md:text-3xl font-black text-slate-900 uppercase tracking-tight mb-4">About the Portal</h2>
-            <p class="text-xs md:text-sm text-slate-600 leading-relaxed font-light max-w-2xl">
-                The African Astronomical Heritage Portal (Tanzania Network) is built as a highly robust, dynamic open-source application engine. Operating without relational backend account storage layers, it provides immediate access to cultural cosmic records for global citizens without dynamic tracking barriers.
+    <section id="indigenous-section" class="max-w-3xl mx-auto px-6 py-24 scroll-mt-10">
+        
+        <div class="mb-12">
+            <p class="text-[10px] tracking-[0.3em] uppercase font-bold text-amber-700 mb-2">Traditional Astronomy</p>
+            <h2 class="text-3xl font-black text-slate-900 uppercase tracking-tight">
+                Traditional Astronomy
+            </h2>
+        </div>
+
+        <div class="space-y-8 text-slate-600 text-sm md:text-base leading-relaxed font-light">
+            <p>
+                Beyond physical stone structures and mapped locations lies a deep library of living timekeeping traditions, local sky stories, and ancestral observation systems passed down across different cultures. These traditions show how communities used the stars to guide their daily survival, travel, and trade.
+            </p>
+
+            <div class="pt-6 border-t border-slate-100 space-y-2">
+                <h3 class="text-xs font-bold uppercase tracking-widest text-slate-900 flex items-center gap-2">
+                    <span class="text-amber-700">■</span> Swahili Maritime Navigation (Uramali)
+                </h3>
+                <p class="text-xs md:text-sm text-slate-600 font-light">
+                    Along the coast, traditional dhow captains used the night sky to guide their journeys across the Western Indian Ocean. By balancing deep seasonal monsoon wind patterns against the fixed placement of southern star constellations, they maintained accurate open-sea trade routes for centuries without modern instruments.
+                </p>
+            </div>
+
+            <div class="pt-6 border-t border-slate-100 space-y-2">
+                <h3 class="text-xs font-bold uppercase tracking-widest text-slate-900 flex items-center gap-2">
+                    <span class="text-amber-700">■</span> The Maasai Cosmic Calendar
+                </h3>
+                <p class="text-xs md:text-sm text-slate-600 font-light">
+                    Across inland plains, pastoral communities relied on tracking systems focused on the prominent *Kilimia* star cluster, known globally as the Pleiades. By measuring the cluster's position relative to the changing moon phases, elders created highly accurate seasonal calendars to predict rainfall and plan vital livestock movements.
+                </p>
+            </div>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <span class="text-[10px] font-mono tracking-wider text-slate-400 uppercase">[ Traditional Knowledge Available ]</span>
+            <a href="indigenous-details.html" target="_blank" class="px-8 py-3.5 rounded-full bg-slate-900 hover:bg-amber-600 text-white hover:text-slate-950 font-bold text-xs uppercase tracking-widest shadow-sm transition-all duration-300 flex items-center gap-3 w-full sm:w-auto justify-center">
+                <span>Explore Traditional Sky Stories</span>
+                <i class="fa-solid fa-arrow-right-long text-xs"></i>
+            </a>
+        </div>
+        
+    </section>
+
+    <section id="observatory-section" class="max-w-3xl mx-auto px-6 py-24 scroll-mt-10">
+        
+        <div class="mb-12">
+            <p class="text-[10px] tracking-[0.3em] uppercase font-bold text-amber-700 mb-2">Conservation & Nature</p>
+            <h2 class="text-3xl font-black text-slate-900 uppercase tracking-tight">
+                Protecting Our Night Skies
+            </h2>
+        </div>
+
+        <div class="space-y-6 text-slate-600 text-sm md:text-base leading-relaxed font-light">
+            <p>
+                Preserving environments with naturally dark skies is essential for maintaining a clear window into deep space. By setting up dedicated stargazing areas across protected wilderness regions, this project works to limit artificial city light glow. This active care ensures that ancient stargazing spots remain completely clear for modern study and community heritage maps.
+            </p>
+            
+            <p>
+                Specialized protection efforts are currently focused on key natural areas specifically within the pristine, unpolluted boundaries of the Serengeti and Ruaha wilderness zones. Shielding these regions from artificial light does more than protect sensitive nocturnal wildlife; it creates ideal environments for sustainable stargazing tourism.
+            </p>
+            
+            <p>
+                By linking night sky preservation directly with local conservation programs, this initiative ensures that the same skies tracked by East African societies for thousands of years stay visible to future generations. These efforts help position these historic wilderness locations as internationally recognized centers for stargazing and astronomical study.
             </p>
         </div>
+
+        <div class="mt-12 pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3 text-slate-400">
+                <i class="fa-solid fa-moon text-base text-amber-700/80"></i>
+                <p class="text-[10px] tracking-wider uppercase font-bold font-mono">[ Night Sky Information Available ]</p>
+            </div>
+            <a href="observatory-details.html" target="_blank" class="px-8 py-3.5 rounded-full bg-slate-900 hover:bg-amber-600 text-white hover:text-slate-950 font-bold text-xs uppercase tracking-widest shadow-sm transition-all duration-300 flex items-center gap-3 w-full sm:w-auto justify-center">
+                <span>Explore Stargazing Locations</span>
+                <i class="fa-solid fa-arrow-right-long text-xs"></i>
+            </a>
+        </div>
+        
     </section>
 
-    <!-- 13. MODULE: ADMIN DASHBOARD (Data Conversion Component Matrix) -->
-    <section id="admin-section" class="bg-slate-100 border-t border-slate-200 py-24 scroll-mt-10">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="mb-12">
-                <p class="text-[10px] tracking-widest uppercase font-bold text-amber-700 mb-2">Data Operations Control</p>
-                <h2 class="text-2xl md:text-3xl font-black text-slate-900 uppercase tracking-tight flex items-center gap-3">
-                    <i class="fa-solid fa-sliders text-slate-400 text-xl"></i> Admin Dashboard
-                </h2>
-                <p class="text-sm text-slate-600 mt-2">Since we operate client-side, use this parsing form to compile records into structural JSON nodes to append to the master static files directly.</p>
+    <section id="repository-section" class="max-w-3xl mx-auto px-6 py-24 scroll-mt-10">
+        
+        <div class="mb-12">
+            <p class="text-[10px] tracking-[0.3em] uppercase font-bold text-amber-700 mb-2">Research & Publications</p>
+            <h2 class="text-3xl font-black text-slate-900 uppercase tracking-tight">
+                Research Library
+            </h2>
+        </div>
+
+        <div class="space-y-6 text-slate-600 text-sm md:text-base leading-relaxed font-light">
+            <p>
+                Our research library brings together articles, reports, and studies about East Africa's traditional astronomy history in one easy-to-use place. By gathering cultural stories and modern research into one accessible space, this collection creates an open platform supporting local and international researchers alike.
+            </p>
+            
+            <p>
+                The library features studies covering specific field observations, including traditional astronomy traditions in Central Tanzania, descriptions of ancient sun-watching sites, and language studies on how local cultures named the stars. Each record is verified to ensure important historical information remains preserved for long-term reference.
+            </p>
+            
+            <p>
+                Built to expand global awareness of East African intellectual history, this open collection provides students and schools with direct access to foundational records. By sharing these files online, it establishes a reliable learning resource that actively fills critical gaps in mainstream science and history education.
+            </p>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3 text-slate-400">
+                <i class="fa-solid fa-graduation-cap text-base text-amber-700/80"></i>
+                <p class="text-[10px] tracking-wider uppercase font-bold font-mono">[ Research Library Ready ]</p>
+            </div>
+            <a href="repository-details.html" target="_blank" class="px-8 py-3.5 rounded-full bg-slate-900 hover:bg-amber-600 text-white hover:text-slate-950 font-bold text-xs uppercase tracking-widest shadow-sm transition-all duration-300 flex items-center gap-3 w-full sm:w-auto justify-center">
+                <span>Browse Research Library</span>
+                <i class="fa-solid fa-arrow-right-long text-xs"></i>
+            </a>
+        </div>
+        
+    </section>
+
+    <section id="multimedia-section" class="max-w-3xl mx-auto px-6 py-24 scroll-mt-10">
+        
+        <div class="mb-12">
+            <p class="text-[10px] tracking-[0.3em] uppercase font-bold text-amber-700 mb-2">Digital Collection</p>
+            <h2 class="text-3xl font-black text-slate-900 uppercase tracking-tight">
+                Photo & Video Gallery
+            </h2>
+        </div>
+
+        <div class="space-y-6 text-slate-600 text-sm md:text-base leading-relaxed font-light">
+            <p>
+                Explore photos, videos, audio recordings, and stories that help bring ancient East African sky traditions to life. Moving beyond traditional text documentation, this gallery acts as a living space for cultural preservation. It pairs direct community storytelling with detailed views of heritage sites to ensure the full meaning of local traditions is completely preserved.
+            </p>
+            
+            <p>
+                The gallery includes diverse media formats, including clear audio recordings of traditional sky stories shared by community elders, beautiful night-sky photography from historical stargazing locations, and video walks detailing important archaeological landscapes. These resources preserve crucial vocal accents, artistic expressions, and natural details that books often miss.
+            </p>
+            
+            <p>
+                Designed as a highly visual and welcoming space, this collection allows visitors to experience historical places from anywhere in the world. By organizing these media files alongside location records and research articles, it creates a rich learning tool for students, storytellers, and researchers globally.
+            </p>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3 text-slate-400">
+                <i class="fa-solid fa-photo-film text-base text-amber-700/80"></i>
+                <p class="text-[10px] tracking-wider uppercase font-bold font-mono">[ Media Collection Ready ]</p>
+            </div>
+            <a href="multimedia-details.html" target="_blank" class="px-8 py-3.5 rounded-full bg-slate-900 hover:bg-amber-600 text-white hover:text-slate-950 font-bold text-xs uppercase tracking-widest shadow-sm transition-all duration-300 flex items-center gap-3 w-full sm:w-auto justify-center">
+                <span>Explore Photos & Videos</span>
+                <i class="fa-solid fa-arrow-right-long text-xs"></i>
+            </a>
+        </div>
+        
+    </section>
+
+    <section id="education-section" class="max-w-3xl mx-auto px-6 py-24 scroll-mt-10">
+        
+        <div class="mb-12">
+            <p class="text-[10px] tracking-[0.3em] uppercase font-bold text-amber-700 mb-2">Learning Resources</p>
+            <h2 class="text-3xl font-black text-slate-900 uppercase tracking-tight">
+                Learning Centre
+            </h2>
+        </div>
+
+        <div class="space-y-6 text-slate-600 text-sm md:text-base leading-relaxed font-light">
+            <p>
+                This learning centre helps students and teachers understand astronomy using both English and Kiswahili. By translating complex astronomy definitions directly into Kiswahili including terms like *galaksi* (galaxy), *kimondo* (meteorite), *nyota* (star), and *darubini* (telescope) this space creates an accessible educational bridge for students who learn best in their native language.
+            </p>
+            
+            <p>
+                The study materials shared here are designed to fit perfectly into secondary school and university classrooms across East Africa. Rather than replacing standard lessons, these resources enrich existing physics and earth science classes by connecting global astronomy lessons with local language terms and historical examples.
+            </p>
+            
+            <p>
+                By building open study materials that highlight local expressions, this collection removes language barriers that frequently keep local communities away from science fields. The initiative actively provides teachers with classroom resources, worksheets, and clear vocabulary guides to support local scientific learning.
+            </p>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3 text-slate-400">
+                <i class="fa-solid fa-language text-base text-amber-700/80"></i>
+                <p class="text-[10px] tracking-wider uppercase font-bold font-mono">[ Learning Resources Available ]</p>
+            </div>
+            <a href="education-details.html" target="_blank" class="px-8 py-3.5 rounded-full bg-slate-900 hover:bg-amber-600 text-white hover:text-slate-950 font-bold text-xs uppercase tracking-widest shadow-sm transition-all duration-300 flex items-center gap-3 w-full sm:w-auto justify-center">
+                <span>Explore Learning Resources</span>
+                <i class="fa-solid fa-arrow-right-long text-xs"></i>
+            </a>
+        </div>
+        
+    </section>
+
+    <section id="events-section" class="max-w-3xl mx-auto px-6 py-24 scroll-mt-10">
+        
+        <div class="mb-12">
+            <p class="text-[10px] tracking-[0.3em] uppercase font-bold text-amber-700 mb-2">Public Gatherings</p>
+            <h2 class="text-3xl font-black text-slate-900 uppercase tracking-tight">
+                Community Events
+            </h2>
+        </div>
+
+        <div class="space-y-6 text-slate-600 text-sm md:text-base leading-relaxed font-light">
+            <p>
+                Community-driven gatherings bridge the gap between digital libraries and real-world astronomical study. Our heritage community hosts public stargazing nights, collaborative observation sessions, and local learning sessions that let visitors connect directly with beautiful night skies over perfectly dark natural areas.
+            </p>
+            
+            <p>
+                Upcoming gatherings including free stargazing sessions in the Arusha sector allow researchers, student groups, and local societies to gather under clear skies. These practical learning sessions use professional telescopes to view the wonders of the night sky while connecting traditional star stories with modern astronomy.
+            </p>
+            
+            <p>
+                Designed as open, welcoming platforms, these night sky observation sessions are completely free to the public. By offering direct access to specialized telescopes and expert instruction, the events foster a deeply collaborative local network centered around cultural preservation, dark sky protection, and historical research.
+            </p>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3 text-slate-400">
+                <i class="fa-solid fa-satellite-dish text-base text-amber-700/80"></i>
+                <p class="text-[10px] tracking-wider uppercase font-bold font-mono">[ Stargazing Nights: Sept 2026 ]</p>
+            </div>
+            <a href="events-details.html" target="_blank" class="px-8 py-3.5 rounded-full bg-slate-900 hover:bg-amber-600 text-white hover:text-slate-950 font-bold text-xs uppercase tracking-widest shadow-sm transition-all duration-300 flex items-center gap-3 w-full sm:w-auto justify-center">
+                <span>View Event Calendar</span>
+                <i class="fa-solid fa-arrow-right-long text-xs"></i>
+            </a>
+        </div>
+        
+    </section>
+
+    <section id="datacenter-section" class="max-w-3xl mx-auto px-6 py-24 scroll-mt-10">
+        
+        <div class="mb-12">
+            <p class="text-[10px] tracking-[0.3em] uppercase font-bold text-amber-700 mb-2">Sky Conditions & Research Data</p>
+            <h2 class="text-3xl font-black text-slate-900 uppercase tracking-tight">
+                Night Sky Data
+            </h2>
+        </div>
+
+        <div class="space-y-6 text-slate-600 text-sm md:text-base leading-relaxed font-light">
+            <p>
+                We study local sky conditions to help identify the best places for stargazing and research, matching them with historical observation sites. This collection of information tracks seasonal clear sky patterns across the regional highlands to help protect ideal spots for long-term study.
+            </p>
+            
+            <p>
+                Environmental measurements across prime upland stargazing locations indicate exceptional view clarity, maintaining a clear skies average of 84% throughout the dry season cycles. This natural window features remarkably stable atmospheric conditions, offering minimal blur or turbulence for looking deep into the night sky.
+            </p>
+            
+            <p>
+                Crucially, these rural areas enjoy very dark skies with no city light interference. Documenting these baseline measurements serves a dual purpose: it aids modern stargazing activities while actively supporting local conservation efforts to protect beautiful night sky environments.
+            </p>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3 text-slate-400">
+                <i class="fa-solid fa-chart-simple text-base text-amber-700/80"></i>
+                <p class="text-[10px] tracking-wider uppercase font-bold font-mono">[ Data Collection Active ]</p>
+            </div>
+            <a href="data-details.html" target="_blank" class="px-8 py-3.5 rounded-full bg-slate-900 hover:bg-amber-600 text-white hover:text-slate-950 font-bold text-xs uppercase tracking-widest shadow-sm transition-all duration-300 flex items-center gap-3 w-full sm:w-auto justify-center">
+                <span>Explore Sky Conditions</span>
+                <i class="fa-solid fa-arrow-right-long text-xs"></i>
+            </a>
+        </div>
+        
+    </section>
+
+    <section id="community-section" class="max-w-3xl mx-auto px-6 py-24 scroll-mt-10">
+        
+        <div class="mb-12">
+            <p class="text-[10px] tracking-[0.3em] uppercase font-bold text-amber-700 mb-2">Collaborative Knowledge Hub</p>
+            <h2 class="text-3xl font-black text-slate-900 uppercase tracking-tight">
+                Community Sharing
+            </h2>
+        </div>
+
+        <div class="space-y-6 text-slate-600 text-sm md:text-base leading-relaxed font-light">
+            <p>
+                Preserving precious oral histories requires an active link between our research group and regional communities. This shared digital workspace empowers community contributors, students, and local historians to send valuable cultural knowledge directly to our team for preservation.
+            </p>
+            
+            <p>
+                If you know of traditional star stories, local sky myths, or traditional navigation methods shared by community elders, your knowledge can play an important role in expanding this record. Contributions are safely sent to our review team where researchers check, translate, and prepare them to be shared with the world.
+            </p>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3 text-slate-400">
+                <i class="fa-solid fa-paper-plane text-base text-amber-700/80"></i>
+                <p class="text-[10px] tracking-wider uppercase font-bold font-mono">[ Send your story ]</p>
+            </div>
+            <a href="mailto:contribute@aahp-tanzania.org" class="px-8 py-3.5 rounded-full bg-slate-900 hover:bg-amber-600 text-white hover:text-slate-950 font-bold text-xs uppercase tracking-widest shadow-sm transition-all duration-300 flex items-center gap-3 w-full sm:w-auto justify-center">
+                <span>Send your contribution</span>
+                <i class="fa-solid fa-arrow-right-long text-xs"></i>
+            </a>
+        </div>
+        
+    </section>
+
+    <section id="about-section" class="max-w-3xl mx-auto px-6 py-24 scroll-mt-10">
+        
+        <div class="mb-12">
+            <p class="text-[10px] tracking-[0.3em] uppercase font-bold text-amber-700 mb-2">Our Mission</p>
+            <h2 class="text-3xl font-black text-slate-900 uppercase tracking-tight">
+                About the Platform
+            </h2>
+        </div>
+
+        <div class="space-y-6 text-slate-600 text-sm md:text-base leading-relaxed font-light">
+            <p>
+                The African Astronomical Heritage Portal (Tanzania Network) preserves Tanzania's astronomical heritage and makes it freely available for everyone. Built without any complicated user tracking or login screens, the website offers quick and direct access to cultural records so that visitors can explore historical traditions privately and freely.
+            </p>
+            
+            <p>
+                By keeping our platform simple and lightweight, this digital library works beautifully even on basic internet connections in remote areas. This collection serves as a lasting home dedicated to keeping foundational cultural history visible, easy to find, and openly available to students, teachers, and schools worldwide.
+            </p>
+        </div>
+        
+    </section>
+
+    <!-- 13. MODULE: CONTACT (EDITORIAL PARAGRAPHS LIGHT LAYOUT) -->
+    <section id="contact" class="max-w-3xl mx-auto px-6 py-24 scroll-mt-10">
+        
+        <!-- Section Header -->
+        <div class="mb-12">
+            <p class="text-[10px] tracking-[0.3em] uppercase font-bold text-amber-700 mb-2">Get In Touch</p>
+            <h2 class="text-3xl font-black text-slate-900 uppercase tracking-tight">
+                Contact Us
+            </h2>
+        </div>
+
+        <!-- Narrative Paragraphs -->
+        <div class="space-y-6 text-slate-600 text-sm md:text-base leading-relaxed font-light">
+            <p>
+                Whether you are a researcher looking to collaborate, a teacher seeking learning resources, or a community member wishing to share traditional sky stories, we would love to hear from you. Protecting and sharing East African astronomy heritage is a shared journey, and your voice is an important part of it.
+            </p>
+            
+            <p>
+                Our team is ready to answer questions about our interactive map, digital library, or upcoming community stargazing events. Reach out to us directly through the details below, and let's work together to keep these ancient traditions alive for future generations.
+            </p>
+        </div>
+
+        <!-- Contact Links Area -->
+        <div class="mt-12 pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex flex-col gap-2 text-slate-600 text-xs md:text-sm font-light">
+                <p class="flex items-center gap-3">
+                    <i class="fa-solid fa-envelope text-amber-700/80 w-4"></i>
+                    <span>info@aahptanzania.org</span>
+                </p>
+                <p class="flex items-center gap-3">
+                    <i class="fa-solid fa-location-dot text-amber-700/80 w-4"></i>
+                    <span>Dar es Salaam, Tanzania</span>
+                </p>
+            </div>
+            <a href="mailto:info@aahp-tanzania.org" class="px-8 py-3.5 rounded-full bg-slate-900 hover:bg-amber-600 text-white hover:text-slate-950 font-bold text-xs uppercase tracking-widest shadow-sm transition-all duration-300 flex items-center gap-3 w-full sm:w-auto justify-center">
+                <span>Send a Message</span>
+                <i class="fa-solid fa-arrow-right-long text-xs"></i>
+            </a>
+        </div>
+        
+    </section>
+
+    <!-- 14. MODULE: FOOTER -->
+    <footer class="bg-slate-950 border-t border-slate-900 py-16 text-slate-400">
+        <div class="max-w-7xl mx-auto px-6 md:px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+            
+            <!-- Left Side: Brand Logo & Short Mission Statement -->
+            <div class="flex flex-col items-center md:items-start gap-3 text-center md:text-left">
+                <img src="pic/logo.png" alt="AAHP Logo" class="h-8 w-auto object-contain brightness-0 invert opacity-80">
+                <p class="text-xs font-light max-w-sm leading-relaxed mt-2 text-slate-400">
+                    Celebrating, preserving, and sharing thousands of years of traditional East African astronomy and stargazing history.
+                </p>
             </div>
             
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-                <!-- Data Form Input -->
-                <form id="adminForm" class="space-y-4 bg-white p-6 md:p-8 rounded-2xl border border-slate-200 shadow-sm text-xs font-bold tracking-tight text-slate-500" onsubmit="event.preventDefault();">
-                    <div>
-                        <label class="block uppercase tracking-wider mb-2">Artifact Name</label>
-                        <input type="text" id="formTitle" placeholder="e.g. KIMONDO CHA MBOZI" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-800 tracking-normal font-normal focus:outline-none focus:bg-white focus:border-amber-600" required/>
-                    </div>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <label class="block uppercase tracking-wider mb-2">Region Matrix</label>
-                            <input type="text" id="formRegion" placeholder="e.g. MBEYA" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-800 tracking-normal font-normal focus:outline-none focus:bg-white focus:border-amber-600" required/>
-                        </div>
-                        <div>
-                            <label class="block uppercase tracking-wider mb-2">Custodian Group</label>
-                            <input type="text" id="formGroup" placeholder="e.g. NYIHA COMMUNITY" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-800 tracking-normal font-normal focus:outline-none focus:bg-white focus:border-amber-600" required/>
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block uppercase tracking-wider mb-2">Technical Description</label>
-                        <textarea id="formDesc" rows="4" placeholder="Log deep historic details..." class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-800 tracking-normal font-normal focus:outline-none focus:bg-white focus:border-amber-600" required></textarea>
-                    </div>
-                    <button type="button" onclick="generateJSON()" class="w-full bg-slate-900 text-white font-bold px-4 py-3 rounded-full text-[10px] tracking-widest uppercase hover:bg-amber-600 transition-colors">
-                        <i class="fa-solid fa-code mr-2"></i> Parse Record Block
-                    </button>
-                </form>
-                
-                <!-- Data Output Container Codeblock -->
-                <div class="w-full">
-                    <label class="block text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">Formatted Data Node Output</label>
-                    <pre id="jsonOutput" class="w-full h-64 bg-slate-900 border border-slate-950 rounded-2xl p-5 text-xs font-mono text-emerald-400 overflow-y-auto select-all shadow-inner leading-relaxed">System monitoring idle. Ready to parse record entries...</pre>
-                </div>
+            <!-- Right Side: Copyright & Institutional Attributions -->
+            <div class="flex flex-col items-center md:items-end gap-2 text-center md:text-right text-[10px] uppercase tracking-wider font-medium text-slate-500">
+                <p>© 2026 African Astronomical Heritage Portal. All Rights Reserved.</p>
+                <p class="font-light normal-case tracking-normal">Supported by community historians, educators, and cultural protection initiatives across Tanzania.</p>
             </div>
+            
         </div>
-    </section>
-
-    <!-- SYSTEM FOOTER -->
-    <footer class="bg-slate-900 py-12 text-center text-[10px] uppercase tracking-widest font-bold text-slate-500 border-t border-slate-950">
-        <p>© 2026 African Astronomical Heritage Portal - Tanzania Network. Open-Source Static Architecture.</p>
     </footer>
 
     <!-- CORE FUNCTIONAL JAVASCRIPT LOGIC -->
