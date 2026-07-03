@@ -1,286 +1,541 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tanzanian Ethno-Astronomy Archive</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <title>African Astronomical Heritage Portal (AAHP) - Tanzania</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background: radial-gradient(circle at 50% 0%, #121420 0%, #07080d 70%, #020204 100%);
-            background-attachment: fixed;
-        }
-        .serif-title { font-family: 'Playfair Display', serif; }
-        
-        .ios-glass {
-            background: rgba(15, 17, 28, 0.45);
-            backdrop-filter: blur(30px) saturate(190%);
-            -webkit-backdrop-filter: blur(30px) saturate(190%);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-        }
-        .ios-glass-card {
-            background: rgba(255, 255, 255, 0.015);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.04);
-        }
-        .ios-glass-card:hover {
-            background: rgba(255, 255, 255, 0.035);
-            border-color: rgba(197, 168, 128, 0.3);
-            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8);
-        }
-        
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.08); border-radius: 99px; }
-        ::-webkit-scrollbar-thumb:hover { background: rgba(197, 168, 128, 0.3); }
-    </style>
 </head>
-<body class="text-zinc-400 min-h-screen flex flex-col antialiased selection:bg-amber-500/20 selection:text-amber-200">
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-amber-100 selection:text-amber-900">
 
-    <header class="ios-glass sticky top-0 z-40 px-6 py-4 lg:px-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b">
-    <div>
-        <div class="flex items-center gap-2 text-[9px] tracking-[0.25em] text-[#C5A880] font-bold uppercase mb-1">
-            <i class="fa-solid fa-building-columns text-[10px]"></i> National Indigenous Knowledge Portal
-        </div>
-        <h1 class="serif-title text-xl lg:text-2xl font-medium tracking-wide text-zinc-100">Tanzanian Indigenous Astronomy Archive</h1>
-    </div>
-    
-    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full md:w-auto">
-        <div class="relative flex-1 sm:flex-none">
-            <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-500 text-xs"></i>
-            <input type="text" id="searchInput" placeholder="Search constellations, tribes..." class="w-full sm:w-64 bg-black/40 border border-white/5 rounded-full pl-9 pr-4 py-2 text-xs text-zinc-200 focus:outline-none focus:border-[#C5A880]/60 focus:ring-1 focus:ring-[#C5A880]/20 transition-all placeholder-zinc-600">
-        </div>
-
-        <select id="regionFilter" class="bg-black/40 border border-white/5 rounded-full px-4 py-2 text-xs text-zinc-300 focus:outline-none focus:border-[#C5A880]/60 transition-all cursor-pointer">
-            <option value="all" class="bg-[#07080d]">All Regions</option>
-            <option value="Kagera" class="bg-[#07080d]">Kagera</option>
-            <option value="Kilimanjaro" class="bg-[#07080d]">Kilimanjaro</option>
-            <option value="Mwanza" class="bg-[#07080d]">Mwanza</option>
-            <option value="Arusha" class="bg-[#07080d]">Arusha</option>
-            <option value="Lindi" class="bg-[#07080d]">Lindi</option>
-            <option value="Dodoma" class="bg-[#07080d]">Dodoma</option>
-            <option value="Iringa" class="bg-[#07080d]">Iringa</option>
-            <option value="Rukwa" class="bg-[#07080d]">Rukwa</option>
-            <option value="Tanga" class="bg-[#07080d]">Tanga</option>
-            <option value="Kigoma" class="bg-[#07080d]">Kigoma</option>
-        </select>
-
-        <a href="stars.html" id="viewStarsBtn" class="bg-[#C5A880]/10 hover:bg-[#C5A880]/20 border border-[#C5A880]/30 hover:border-[#C5A880]/60 text-[#C5A880] hover:text-white px-5 py-2 rounded-full text-xs font-medium tracking-wide flex items-center justify-center gap-2 transition-all group shrink-0 shadow-lg shadow-black/20 text-center decoration-none">
-    <span>View the Stars</span>
-    <i class="fa-solid fa-star text-[10px] opacity-80 group-hover:rotate-45 transition-transform duration-300"></i>
+    <!-- FIXED NAVIGATION BAR WITH PREMIUM GLASSMORPHISM -->
+    <div class="fixed top-4 left-1/2 -translate-x-1/2 w-[calc(100%-1.5rem)] max-w-7xl z-50 px-2 md:px-4">
+        <nav id="navbar" class="w-full backdrop-blur-xl bg-white/70 border border-slate-200/50 shadow-[0_8px_32px_0_rgba(0,0,0,0.06)] rounded-[1.5rem] lg:rounded-full transition-all duration-300 overflow-hidden">
+            
+            <!-- Desktop Nav / Main Container -->
+            <div class="w-full px-6 md:px-8 h-16 flex items-center justify-between">
+                <!-- Portal Module Title Component -->
+                <!-- BRAND LOGO COMPONENT WITH IMAGE SOURCE -->
+<a href="#home" class="shrink-0 flex items-center transition-opacity hover:opacity-90">
+    <img src="pic/logo.png" alt="AAHP Logo" class="h-8 w-auto object-contain">
 </a>
-    </div>
-</header>
-
-    <div class="flex-1 flex flex-col lg:flex-row min-h-[calc(100vh-77px)] relative w-full">
-        
-        <main class="flex-1 p-6 lg:p-10 overflow-y-auto">
-            <div class="mb-8 flex justify-between items-center border-b border-white/5 pb-4">
-                <p class="text-[11px] text-zinc-400 font-medium uppercase tracking-wider" id="recordCount">Evaluating records...</p>
-                <div class="text-[11px] text-zinc-500 italic hidden sm:flex items-center gap-1.5"><i class="fa-solid fa-circle-info text-[9px]"></i> Select any system node to explore full parameter maps.</div>
-            </div>
-            
-            <div id="archiveGrid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"></div>
-        </main>
-
-        <aside id="studyPlacard" class="fixed lg:sticky top-[73px] right-0 h-[calc(100vh-73px)] w-full lg:w-[460px] bg-[#07080d]/95 backdrop-blur-xl border-t lg:border-t-0 lg:border-l border-white/5 shadow-2xl translate-x-full lg:translate-x-0 transition-transform duration-300 ease-out z-50 overflow-y-auto flex flex-col">
-            <button id="closePlacardBtn" class="absolute top-6 right-6 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-zinc-400 hover:text-zinc-200 lg:hidden transition-colors border border-white/5">
-                <i class="fa-solid fa-xmark text-xs"></i>
-            </button>
-            
-            <div id="placardContent" class="p-8 flex flex-col items-center justify-center flex-1 text-center h-full">
-                <div class="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 mb-5 text-zinc-500">
-                    <i class="fa-solid fa-compass-drafting text-sm"></i>
-                </div>
-                <h3 class="serif-title text-base font-medium text-zinc-300">Select Cultural Record</h3>
-                <p class="text-xs text-zinc-500 mt-2 max-w-xs leading-relaxed">Select an active tracking element from the catalog to load field notes, localized linguistic roots, and agricultural alignments.</p>
-            </div>
-        </aside>
-
-    </div>
-
-    <script>
-        const tanzanianAstronomyData = [
-            { id: "kilimia", traditionalName: "Kilimia", scientificMapping: "Pleiades Cluster (Seven Sisters)", tribes: ["Sukuma", "Chaga", "Nyamwezi"], region: "Mwanza", translation: "The Ploughing/Cultivating Stars", primaryUsage: "Agricultural Forecasting & Rain Tracking", lore: "Historically across Central and Northern Tanzania, the visibility of Kilimia on the eastern horizon just before dawn signaled the precise time to clear fields for the planting cycle. Its positioning determined whether the community could expect heavy downpours or a short rainy season.", researcherNotes: "Documented through oral narratives of community elders. Cross-referenced across multiple Bantu linguistic roots where '-lima' denotes cultivation actions.", icon: "fa-seedling" },
-            { id: "kakanyasila", traditionalName: "Kakanyasila", scientificMapping: "Orion's Belt", tribes: ["Haya"], region: "Kagera", translation: "The Three Frontier Guardians", primaryUsage: "Night Navigation & Timekeeping", lore: "In early Haya traditions, these three perfectly aligned stars represented cosmic hunters or guardians pacing the night sky. Travelers and lake fishermen used its zenith alignment to map hourly intervals across deep night expeditions.", researcherNotes: "Field entry verified via traditional council elders in Bukoba rural regions. Tracks closely with early defense and hunting lore.", icon: "fa-shield-halved" },
-            { id: "inyasi", traditionalName: "Inyasi Enaibor", scientificMapping: "The Milky Way Galaxy", tribes: ["Maasai"], region: "Arusha", translation: "The Great White Road of Animals", primaryUsage: "Cosmological Balance & Seasonal Migration", lore: "To the pastoralist Maasai community, the glowing path of the Milky Way serves as an expansive celestial map tracing a heavenly river or path where ancestral herds walk. Its seasonal shifts correspond structurally to landscape grazing variations.", researcherNotes: "Collected near Monduli district. The astronomical marker is core to pastoralist alignment narratives regarding tracking dry/wet rangeland resources.", icon: "fa-route" },
-            { id: "ndondoki", traditionalName: "Ndondoki", scientificMapping: "Sirius (The Dog Star)", tribes: ["Makonde"], region: "Lindi", translation: "The High Crimson Watcher", primaryUsage: "Maritime Tidal Alignment & Coastal Tracking", lore: "Positioned close to the southeastern coast, the highly vibrant morning flashing of this celestial body assisted coastal fishing communities in anticipating rapid low-tide windows ideal for deep reef foraging and canoe deployment.", researcherNotes: "Sourced through community group mapping interviews in Lindi coastal zones. Connected deeply with maritime oral histories.", icon: "fa-water" },
-            { id: "ngazi", traditionalName: "Ngazi ya Cosmic", scientificMapping: "Orion Quadrant Asterisms", tribes: ["Hehe"], region: "Iringa", translation: "The Ancestral Ladder", primaryUsage: "Tribal Initiation Rites & Lineage History", lore: "In traditional Hehe structures around the Southern Highlands, this alignment represents an ascending link between the physical village and spiritual realms. It served as a cosmic back-drop for generational governance transitions.", researcherNotes: "Acquired via elders in Iringa rural sectors. Heavily tied to military camp structural alignments during historical resistance eras.", icon: "fa-stairs" },
-            { id: "mtondo", traditionalName: "Mtondo", scientificMapping: "Southern Cross (Crux)", tribes: ["Gogo"], region: "Dodoma", translation: "The Central Night Anchor", primaryUsage: "Cross-Country Vector Navigation", lore: "Traversing the semi-arid tracks of central Tanzania, Gogo traveling merchants relied heavily on the stable orientation of this alignment. It offered dependable compass headings during long, cool overnight supply treks.", researcherNotes: "Archived through local history preservation interviews in Dodoma rural districts.", icon: "fa-compass" },
-            { id: "isanga", traditionalName: "Isanga Lya Mkuki", scientificMapping: "Scorpius Tail Constellation", tribes: ["Fipa"], region: "Rukwa", translation: "The Poised Hunting Spear", primaryUsage: "Seasonal Hunting Adjustments", lore: "For the Fipa people of southwest Tanzania, the steep upward curvature of these star clusters mimics a raised weapon. Its pitch relative to the horizon signaled the migration spikes of large plateau game animals.", researcherNotes: "Sourced near Sumbawanga plateau region records.", icon: "fa-location-crosshairs" },
-            { id: "shila", traditionalName: "Shila", scientificMapping: "Venus (Morning & Evening Star Phase)", tribes: ["Zigua"], region: "Tanga", translation: "The Wandering Bride", primaryUsage: "Community Festival Planning", lore: "The dual morning and evening movements of this vivid body were tracked strictly by Zigua tribal matriarchs. Its specific proximity thresholds designated structural times for intra-village marriage unions and dry-season dances.", researcherNotes: "Verified via cultural data records in Handeni.", icon: "fa-ring" },
-            { id: "nandala", traditionalName: "Nandala", scientificMapping: "Ursa Major (Big Dipper Asterism)", tribes: ["Ha"], region: "Kigoma", translation: "The Hanging Water Gourd", primaryUsage: "Hydrological & Drought Forecasting", lore: "Settled near Lake Tanganyika, the Ha community tracked the tipping basin shape of this alignment. An extreme horizon inversion indicated shifting wind patterns that brought either severe dry fronts or immense catchment rains.", researcherNotes: "Preserved through community documentation projects in Kigoma.", icon: "fa-bucket" },
-            { id: "chimwela", traditionalName: "Chimwela", scientificMapping: "Alpha Centauri Pairings", tribes: ["Luguru"], region: "Morogoro", translation: "The Wind Bringer", primaryUsage: "Atmospheric Protection prep", lore: "High along the Uluguru mountains, the bright flashing properties of this star group forewarned steep high-altitude atmospheric adjustments, reminding villages to structurally reinforce grain reserves against incoming monsoons.", researcherNotes: "Acquired through mountain community research cycles.", icon: "fa-wind" }
-        ];
-
-        const grid = document.getElementById('archiveGrid');
-        const searchInput = document.getElementById('searchInput');
-        const regionFilter = document.getElementById('regionFilter');
-        const studyPlacard = document.getElementById('studyPlacard');
-        const placardContent = document.getElementById('placardContent');
-        const closePlacardBtn = document.getElementById('closePlacardBtn');
-        const recordCount = document.getElementById('recordCount');
-
-        function renderArchive(data) {
-            grid.innerHTML = '';
-            recordCount.innerText = `${data.length} Unique System Records Found`;
-            
-            if(data.length === 0) {
-                grid.innerHTML = `
-                    <div class="col-span-full text-center py-20 border border-dashed border-zinc-800 rounded-2xl bg-white/[0.01]">
-                        <i class="fa-solid fa-feather border border-white/5 bg-white/5 w-12 h-12 flex items-center justify-center rounded-full mx-auto text-zinc-600 text-xl mb-4"></i>
-                        <p class="serif-title text-base text-zinc-400">No matching cultural records found</p>
-                        <p class="text-xs text-zinc-600 mt-1">Refine your search parameters or query a different zone selection.</p>
-                    </div>`;
-                return;
-            }
-            
-            data.forEach(item => {
-                const card = document.createElement('div');
-                card.className = "ios-glass-card rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 transform group cursor-pointer";
                 
-                card.innerHTML = `
-                    <div>
-                        <div class="flex justify-between items-start gap-2 mb-5">
-                            <span class="text-[9px] tracking-wider uppercase bg-white/5 text-[#C5A880] font-semibold px-2.5 py-0.5 rounded-full border border-white/5">
-                                ${item.region}
-                            </span>
-                            <div class="w-7 h-7 rounded-full bg-white/5 flex items-center justify-center text-zinc-500 group-hover:text-[#C5A880] transition-colors text-[11px] border border-white/5">
-                                <i class="fa-solid ${item.icon || 'fa-star'}"></i>
-                            </div>
-                        </div>
-                        
-                        <h2 class="serif-title text-2xl font-medium tracking-wide text-zinc-100 group-hover:text-[#C5A880] transition-colors mb-1">
-                            ${item.traditionalName}
-                        </h2>
-                        <p class="text-xs text-zinc-400 font-medium italic mb-4">"${item.translation}"</p>
-                        <p class="text-xs text-zinc-500 line-clamp-3 leading-relaxed border-t border-white/5 pt-4 mb-5">
-                            ${item.lore}
-                        </p>
-                    </div>
+                <!-- Center: Primary 12 Navigation Links Ordered Dynamically -->
+                <div class="hidden xl:flex items-center gap-4 lg:gap-5 text-[10px] uppercase tracking-widest font-bold text-slate-600">
+                    <a href="#home" class="hover:text-amber-600 transition-colors">Home</a>
+                    <a href="#map-section" class="hover:text-amber-600 transition-colors">Map</a>
+                    <a href="#database-section" class="hover:text-amber-600 transition-colors">Database</a>
+                    <a href="#indigenous-section" class="hover:text-amber-600 transition-colors">Indigenous</a>
+                    <a href="#observatory-section" class="hover:text-amber-600 transition-colors">Dark Sky</a>
+                    <a href="#repository-section" class="hover:text-amber-600 transition-colors">Research</a>
+                    <a href="#multimedia-section" class="hover:text-amber-600 transition-colors">Media</a>
+                    <a href="#education-section" class="hover:text-amber-600 transition-colors">Education</a>
+                    <a href="#events-section" class="hover:text-amber-600 transition-colors">Events</a>
+                    <a href="#datacenter-section" class="hover:text-amber-600 transition-colors">Data</a>
+                    <a href="#community-section" class="hover:text-amber-600 transition-colors">Community</a>
+                    <a href="#about-section" class="hover:text-amber-600 transition-colors">About</a>
+                </div>
+                
+                <!-- Right Side Utility: Admin Quick Jump & Mobile Menu -->
+                <div class="flex items-center gap-4">
+                    <a href="#contact" class="hidden sm:inline-block bg-slate-900 text-white font-bold text-[10px] uppercase tracking-widest px-4 py-2 rounded-full hover:bg-amber-600 transition-all">
+                        Contact
+                    </a>
                     
-                    <div>
-                        <div class="border-t border-white/5 pt-3.5 mb-4 space-y-1.5 text-[11px]">
-                            <div class="flex justify-between"><span class="text-zinc-600">Associated Tribes:</span> <span class="font-medium text-zinc-400">${item.tribes.join(', ')}</span></div>
-                            <div class="flex justify-between"><span class="text-zinc-600">Western Mapping:</span> <span class="italic text-zinc-500 font-mono text-[10px]">${item.scientificMapping}</span></div>
-                        </div>
-                        
-                        <a href="#view-${item.id}" id="btn-${item.id}" class="w-full inline-flex items-center justify-between px-4 py-2.5 text-xs font-medium text-zinc-300 bg-white/5 border border-white/5 rounded-xl hover:bg-white/10 hover:text-white transition-all group/btn">
-                            <span>Open Matrix Evaluation</span>
-                            <i class="fa-solid fa-arrow-right text-[10px] text-zinc-500 group-hover/btn:translate-x-0.5 group-hover/btn:text-[#C5A880] transition-all"></i>
-                        </a>
-                    </div>
-                `;
-                
-                grid.appendChild(card);
+                    <!-- Mobile Hamburger Toggle Element -->
+                    <button id="mobile-menu-btn" class="xl:hidden p-2 text-slate-800 focus:outline-none" aria-label="Toggle Menu">
+                        <i id="menu-icon" class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
 
-                const openAction = (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    activateStudyPlacard(item);
-                };
+            <!-- MOBILE NAV MODULE DROPDOWN -->
+            <div id="mobile-menu" class="hidden xl:hidden border-t border-slate-200 bg-white/95">
+                <div class="grid grid-cols-2 gap-1 py-4 px-6 text-[10px] uppercase tracking-widest font-bold text-slate-600">
+                    <a href="#home" class="mobile-link py-2.5 border-b border-slate-100 flex items-center gap-2"><i class="fa-solid fa-house text-amber-600 w-4"></i> Home</a>
+                    <a href="#map-section" class="mobile-link py-2.5 border-b border-slate-100 flex items-center gap-2"><i class="fa-solid fa-map text-amber-600 w-4"></i> Map</a>
+                    <a href="#database-section" class="mobile-link py-2.5 border-b border-slate-100 flex items-center gap-2"><i class="fa-solid fa-database text-amber-600 w-4"></i> Database</a>
+                    <a href="#indigenous-section" class="mobile-link py-2.5 border-b border-slate-100 flex items-center gap-2"><i class="fa-solid fa-leaf text-amber-600 w-4"></i> Indigenous</a>
+                    <a href="#observatory-section" class="mobile-link py-2.5 border-b border-slate-100 flex items-center gap-2"><i class="fa-solid fa-moon text-amber-600 w-4"></i> Dark Sky</a>
+                    <a href="#repository-section" class="mobile-link py-2.5 border-b border-slate-100 flex items-center gap-2"><i class="fa-solid fa-book text-amber-600 w-4"></i> Research</a>
+                    <a href="#multimedia-section" class="mobile-link py-2.5 border-b border-slate-100 flex items-center gap-2"><i class="fa-solid fa-video text-amber-600 w-4"></i> Media</a>
+                    <a href="#education-section" class="mobile-link py-2.5 border-b border-slate-100 flex items-center gap-2"><i class="fa-solid fa-graduation-cap text-amber-600 w-4"></i> Education</a>
+                    <a href="#events-section" class="mobile-link py-2.5 border-b border-slate-100 flex items-center gap-2"><i class="fa-solid fa-calendar text-amber-600 w-4"></i> Events</a>
+                    <a href="#datacenter-section" class="mobile-link py-2.5 border-b border-slate-100 flex items-center gap-2"><i class="fa-solid fa-chart-simple text-amber-600 w-4"></i> Data</a>
+                    <a href="#community-section" class="mobile-link py-2.5 border-b border-slate-100 flex items-center gap-2"><i class="fa-solid fa-users text-amber-600 w-4"></i> Community</a>
+                    <a href="#about-section" class="mobile-link py-2.5 border-b border-slate-100 flex items-center gap-2"><i class="fa-solid fa-circle-info text-amber-600 w-4"></i> About</a>
+                    <a href="#contact" class="mobile-link col-span-2 text-center bg-slate-100 py-2 mt-2 rounded font-black text-slate-900">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </div>
 
-                card.addEventListener('click', openAction);
-                document.getElementById(`btn-${item.id}`).addEventListener('click', openAction);
-            });
-        }
+    <!-- 1. MODULE: HOME / HERO SECTION WITH IMMERSIVE BACKGROUND -->
+    <section id="home" class="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-slate-950 py-32">
+        
+        <!-- Immersive Background Image & Dark Overlay Matrix -->
+        <div class="absolute inset-0 z-0 pointer-events-none">
+            <img src="pic/hero.png" alt="Tanzanian Cultural Landscape" class="w-full h-full object-cover object-center scale-105 animate-[fadeIn_1.5s_ease-out]">
+            <!-- Vignette & Contrast Overlay Layers for Text Clarity -->
+            <div class="absolute inset-0 bg-slate-950/50 mix-blend-multiply"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-950/30 via-transparent to-slate-50/10 z-10"></div>
+        </div>
+        
+        <div class="relative z-20 text-center px-6 max-w-4xl mx-auto flex flex-col justify-center items-center">
+            <p class="text-xs tracking-[0.45em] text-amber-400 uppercase mb-6 font-bold italic">
+                Tanzanian Astronomical Heritage
+            </p>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight text-white mb-8 max-w-3xl drop-shadow-sm">
+                Archiving Thousands of Years of East African Skywatching
+            </h1>
+            <p class="text-sm md:text-base text-slate-200 max-w-2xl mx-auto leading-relaxed font-light mb-10 drop-shadow-sm">
+                An open-source digital space mapping historical star navigation records, archeological solar monoliths, and indigenous starlore collections across Tanzania.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center w-full sm:w-auto">
+                <a href="#database-section" class="px-8 py-3.5 rounded-full bg-amber-600 hover:bg-amber-700 text-slate-950 font-bold text-xs uppercase tracking-widest shadow-md transition-all w-full sm:w-auto text-center">
+                    Explore Database
+                </a>
+                <a href="#map-section" class="px-8 py-3.5 rounded-full border border-white/40 hover:border-amber-400 bg-white/10 backdrop-blur-sm text-white hover:text-amber-400 font-bold text-xs uppercase tracking-widest transition-all w-full sm:w-auto text-center">
+                    View Matrix Map
+                </a>
+            </div>
+        </div>
+        
+        <!-- Absolute Bottom Layout Indicators -->
+        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 hidden md:flex flex-col items-center gap-2">
+            <span class="text-[9px] tracking-[0.45em] uppercase text-amber-400 font-bold animate-pulse">Scroll Down</span>
+            <div class="w-[1px] h-10 bg-gradient-to-b from-amber-400 to-transparent"></div>
+        </div>
+    </section>
 
-        function activateStudyPlacard(item) {
-            studyPlacard.classList.remove('translate-x-full');
+    <!-- 2. MODULE: GEOSPATIAL REGISTRY & SIGNIFICANCE (MAGAZINE STYLE) -->
+    <section id="map-section" class="max-w-7xl mx-auto px-6 lg:px-8 py-24 scroll-mt-10">
+        
+        <!-- Top Editorial Block -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 border-b border-slate-200 pb-16 mb-16">
+            <div class="lg:col-span-4">
+                <p class="text-[10px] tracking-widest uppercase font-bold text-amber-700 mb-2">Geospatial Mapping</p>
+                <h2 class="text-3xl font-black text-slate-900 uppercase tracking-tight leading-none">The Geospatial<br class="hidden lg:block"/> Mapping</h2>
+            </div>
+            <div class="lg:col-span-8 flex items-center">
+                <p class="font-serif text-lg md:text-xl text-slate-700 leading-relaxed font-light">
+                    A raw spatial data index anchoring ancient Tanzanian star navigation networks, sacred landmarks, and solar alignments to absolute, verified coordinates.
+                </p>
+            </div>
+        </div>
+
+        <!-- Text Breakdown Columns with Left Borders -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 mb-20">
             
-            placardContent.className = "p-8 space-y-6 flex-1 text-left block";
-            placardContent.innerHTML = `
-                <div class="border-b border-white/5 pb-5 mt-4 lg:mt-0">
-                    <div class="text-[9px] tracking-widest font-bold uppercase text-[#C5A880] mb-1">Ethnographic Catalog Card</div>
-                    <h2 class="serif-title text-3xl font-normal text-zinc-100">${item.traditionalName}</h2>
-                    <p class="text-xs text-zinc-400 italic mt-1">"${item.translation}"</p>
-                </div>
+            <!-- Insight Node 1 -->
+            <div class="border-l border-amber-600/30 pl-6 space-y-4">
+                <span class="font-mono text-xs tracking-widest font-black text-amber-700 block">01 : CONTENT</span>
+                <h3 class="text-xs font-bold uppercase tracking-widest text-slate-900">What the Matrix Maps</h3>
+                <p class="text-xs md:text-sm text-slate-600 leading-relaxed font-light">
+                    It registers historical coordinates across premier cultural nodes, including the 16-ton nickel-iron Mbozi Meteorite, the protected solstice panels of Kondoa Irangi, and pristine observation outposts.
+                </p>
+            </div>
 
-                <div class="grid grid-cols-2 gap-3.5 text-xs">
-                    <div class="bg-black/30 p-3.5 border border-white/5 rounded-xl">
-                        <span class="text-[9px] uppercase font-bold tracking-wider text-zinc-600 block mb-1">Geographic Origin</span>
-                        <span class="text-zinc-300 font-medium">${item.region} Region, TZ</span>
-                    </div>
-                    <div class="bg-black/30 p-3.5 border border-white/5 rounded-xl">
-                        <span class="text-[9px] uppercase font-bold tracking-wider text-zinc-600 block mb-1">Primary Usage Category</span>
-                        <span class="text-[#C5A880] font-medium">${item.primaryUsage}</span>
-                    </div>
-                </div>
+            <!-- Insight Node 2 -->
+            <div class="border-l border-amber-600/30 pl-6 space-y-4">
+                <span class="font-mono text-xs tracking-widest font-black text-amber-700 block">02 : CULTURAL IMPORT</span>
+                <h3 class="text-xs font-bold uppercase tracking-widest text-slate-900">Historical Significance</h3>
+                <p class="text-xs md:text-sm text-slate-600 leading-relaxed font-light">
+                    Anchoring physical architectures directly to dynamic geographic metrics offers empirical proof of advanced indigenous calculation matrices, linking structural rock alignments to cyclical celestial movements.
+                </p>
+            </div>
 
+            <!-- Insight Node 3 -->
+            <div class="border-l border-amber-600/30 pl-6 space-y-4">
+                <span class="font-mono text-xs tracking-widest font-black text-amber-700 block">03 : MODERN APPLICATION</span>
+                <h3 class="text-xs font-bold uppercase tracking-widest text-slate-900">Scientific Integration</h3>
+                <p class="text-xs md:text-sm text-slate-600 leading-relaxed font-light">
+                    Acts as an active diagnostic dataset for global field teams. By monitoring environmental light-pollution vectors over old tracking hubs, it informs long-term conservation targets for dark sky environments.
+                </p>
+            </div>
+            
+        </div>
+
+        <!-- Integrated Call-to-Action Link Bar -->
+        <div class="border-t border-slate-200 pt-12 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-4 text-slate-400">
+                <i class="fa-solid fa-earth-africa text-xl text-amber-700/80"></i>
+                <p class="text-[10px] tracking-wider uppercase font-bold">Dynamic Spatial Canvas Layer Active</p>
+            </div>
+            <a href="map.html" target="_blank" class="px-8 py-3.5 rounded-full bg-slate-900 hover:bg-amber-600 text-white hover:text-slate-950 font-bold text-xs uppercase tracking-widest shadow-sm transition-all duration-300 flex items-center gap-3 w-full sm:w-auto justify-center">
+                <span>Launch Interactive Map</span> <i class="fa-solid fa-arrow-right-long text-xs"></i>
+            </a>
+        </div>
+        
+    </section>
+
+    <!-- 3. MODULE: HERITAGE DATABASE -->
+    <section id="database-section" class="bg-white border-y border-slate-200 py-24 scroll-mt-10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+                <div class="max-w-2xl">
+                    <p class="text-[10px] tracking-widest uppercase font-bold text-amber-700 mb-2">Open Access Registry</p>
+                    <h2 class="text-2xl md:text-3xl font-black text-slate-900 uppercase tracking-tight">Heritage Database</h2>
+                    <p class="text-sm text-slate-600 mt-2">Filter and query public archives on historical physical artifacts and sky tracking monuments.</p>
+                </div>
+                <div class="relative w-full md:w-80 shrink-0">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-slate-400 text-xs"></i>
+                    <input type="text" id="searchBar" placeholder="FILTER ENTRIES..." class="w-full bg-slate-50 border border-slate-200 rounded-full pl-10 pr-4 py-3 text-xs tracking-wider font-bold text-slate-800 focus:outline-none focus:border-amber-600 focus:bg-white transition-all placeholder-slate-400"/>
+                </div>
+            </div>
+            <div id="databaseGrid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Injected programmatically by JavaScript loop -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. MODULE: INDIGENOUS ASTRONOMY -->
+    <section id="indigenous-section" class="max-w-7xl mx-auto px-6 lg:px-8 py-24 scroll-mt-10">
+        <div class="max-w-3xl mb-12">
+            <p class="text-[10px] tracking-widest uppercase font-bold text-amber-700 mb-2">Ethno-Astronomy Records</p>
+            <h2 class="text-2xl md:text-3xl font-black text-slate-900 uppercase tracking-tight">Indigenous Astronomy</h2>
+            <p class="text-sm text-slate-600 mt-2">Oral calendar frameworks, localized starlore histories, and deep traditional practices across diverse cultures.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-amber-700"><i class="fa-solid fa-compass text-xs"></i></div>
+                    <h3 class="text-sm font-bold uppercase tracking-wider text-slate-900">Swahili Maritime Navigation (Uramali)</h3>
+                </div>
+                <p class="text-xs md:text-sm text-slate-600 leading-relaxed font-light">
+                    Coastal dhow captains historic mapping arrays across the Western Indian Ocean, referencing seasonal monsoon winds against fixed alignments of Southern constellations.
+                </p>
+            </div>
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-amber-700"><i class="fa-solid fa-calendar-days text-xs"></i></div>
+                    <h3 class="text-sm font-bold uppercase tracking-wider text-slate-900">The Maasai Cosmic Calendar</h3>
+                </div>
+                <p class="text-xs md:text-sm text-slate-600 leading-relaxed font-light">
+                    Strategic calculations tracking *Kilimia* (The Pleiades cluster) relative to lunar phases to construct highly reliable nomadic migration vectors for livestock herds.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. MODULE: DARK SKY OBSERVATORY -->
+    <section id="observatory-section" class="bg-white border-t border-slate-200 py-24 scroll-mt-10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="max-w-3xl mb-12">
+                <p class="text-[10px] tracking-widest uppercase font-bold text-amber-700 mb-2">Ecology & Preservation</p>
+                <h2 class="text-2xl md:text-3xl font-black text-slate-900 uppercase tracking-tight">Dark Sky Observatory</h2>
+                <p class="text-sm text-slate-600 mt-2">Protecting natural low light trespass reserves to drive sustainable scientific astro-tourism.</p>
+            </div>
+            <div class="p-8 bg-slate-50 border border-slate-200 rounded-2xl flex flex-col md:flex-row gap-6 items-start">
+                <div class="p-3 bg-white rounded-xl border border-slate-200 text-amber-700 shrink-0"><i class="fa-solid fa-moon text-lg"></i></div>
                 <div>
-                    <h4 class="text-[10px] font-bold tracking-wider uppercase text-zinc-500 mb-2">Preserved Community Lore</h4>
-                    <p class="text-xs leading-relaxed text-zinc-300 bg-black/20 p-4 border border-white/5 rounded-xl">
-                        ${item.lore}
+                    <h4 class="text-sm font-bold uppercase tracking-wider text-slate-900">Serengeti & Ruaha Dark Sky Zones</h4>
+                    <p class="text-xs md:text-sm text-slate-600 mt-2 leading-relaxed font-light">
+                        Implementing unified protective frameworks across conservation areas to eliminate city glow spill, keeping deep space observation profiles clear for ecological and tourism purposes.
                     </p>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="space-y-4 border-t border-white/5 pt-5 text-xs">
+    <!-- 6. MODULE: RESEARCH REPOSITORY -->
+    <section id="repository-section" class="max-w-7xl mx-auto px-6 lg:px-8 py-24 scroll-mt-10">
+        <div class="max-w-3xl mb-12">
+            <p class="text-[10px] tracking-widest uppercase font-bold text-amber-700 mb-2">Academic Literature</p>
+            <h2 class="text-2xl md:text-3xl font-black text-slate-900 uppercase tracking-tight">Research Repository</h2>
+            <p class="text-sm text-slate-600 mt-2">A centralized index hosting open peer-reviewed papers, archeological evaluations, and ethno-astronomical field assessments.</p>
+        </div>
+        <div class="overflow-hidden bg-white border border-slate-200 rounded-2xl shadow-sm">
+            <table class="w-full text-left border-collapse text-xs md:text-sm">
+                <thead>
+                    <tr class="border-b border-slate-200 bg-slate-50 text-slate-500 font-bold uppercase tracking-wider text-[10px]">
+                        <th class="p-4 md:p-5">Document / Entry Title</th>
+                        <th class="p-4 md:p-5">Lead Researcher</th>
+                        <th class="p-4 md:p-5 text-right">Action</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100 font-light text-slate-600">
+                    <tr>
+                        <td class="p-4 md:p-5 font-medium text-slate-900 uppercase tracking-tight">Ethno-astronomical Frameworks in Central Tanzania</td>
+                        <td class="p-4 md:p-5">Dr. J. Mrema (2024)</td>
+                        <td class="p-4 md:p-5 text-right"><a href="#" class="text-amber-700 hover:text-amber-800 font-bold uppercase tracking-widest text-[10px]"><i class="fa-solid fa-file-pdf mr-1"></i> PDF</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 7. MODULE: MULTIMEDIA ARCHIVE -->
+    <section id="multimedia-section" class="bg-white border-y border-slate-200 py-24 scroll-mt-10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="max-w-3xl mb-12">
+                <p class="text-[10px] tracking-widest uppercase font-bold text-amber-700 mb-2">Digital Vault</p>
+                <h2 class="text-2xl md:text-3xl font-black text-slate-900 uppercase tracking-tight">Multimedia Archive</h2>
+                <p class="text-sm text-slate-600 mt-2">Visual catalogs, structural photogrammetry maps, and field interviews documenting sky traditions.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div class="aspect-video bg-slate-50 border border-slate-200 rounded-xl flex flex-col items-center justify-center text-[10px] uppercase font-bold tracking-widest text-slate-400 gap-2">
+                    <i class="fa-solid fa-volume-high text-slate-300 text-lg"></i> Oral Recording Logs
+                </div>
+                <div class="aspect-video bg-slate-50 border border-slate-200 rounded-xl flex flex-col items-center justify-center text-[10px] uppercase font-bold tracking-widest text-slate-400 gap-2">
+                    <i class="fa-solid fa-images text-slate-300 text-lg"></i> Astrophotography Deck
+                </div>
+                <div class="aspect-video bg-slate-50 border border-slate-200 rounded-xl flex flex-col items-center justify-center text-[10px] uppercase font-bold tracking-widest text-slate-400 gap-2">
+                    <i class="fa-solid fa-video text-slate-300 text-lg"></i> Video Field Walks
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. MODULE: EDUCATION CENTRE -->
+    <section id="education-section" class="max-w-7xl mx-auto px-6 lg:px-8 py-24 scroll-mt-10">
+        <div class="max-w-3xl mb-12">
+            <p class="text-[10px] tracking-widest uppercase font-bold text-amber-700 mb-2">Linguistic & STEM Toolkits</p>
+            <h2 class="text-2xl md:text-3xl font-black text-slate-900 uppercase tracking-tight">Education Centre</h2>
+            <p class="text-sm text-slate-600 mt-2">Swahili language space physics translations and learning modules designed for local institutions.</p>
+        </div>
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm">
+            <h3 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6">Astronomical Nomenclature (Kiswahili Mapping)</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs font-bold tracking-tight">
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                    <span class="block text-[10px] text-slate-400 uppercase tracking-wider font-semibold mb-1">Galaxy</span>
+                    <span class="text-slate-900 uppercase font-mono tracking-wider">Galaksi</span>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                    <span class="block text-[10px] text-slate-400 uppercase tracking-wider font-semibold mb-1">Meteorite</span>
+                    <span class="text-slate-900 uppercase font-mono tracking-wider">Kimondo</span>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                    <span class="block text-[10px] text-slate-400 uppercase tracking-wider font-semibold mb-1">Star</span>
+                    <span class="text-slate-900 uppercase font-mono tracking-wider">Nyota</span>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                    <span class="block text-[10px] text-slate-400 uppercase tracking-wider font-semibold mb-1">Telescope</span>
+                    <span class="text-slate-900 uppercase font-mono tracking-wider">Darubini</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. MODULE: EVENTS -->
+    <section id="events-section" class="bg-white border-y border-slate-200 py-24 scroll-mt-10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="max-w-3xl mb-12">
+                <p class="text-[10px] tracking-widest uppercase font-bold text-amber-700 mb-2">Public Gatherings</p>
+                <h2 class="text-2xl md:text-3xl font-black text-slate-900 uppercase tracking-tight">Events</h2>
+                <p class="text-sm text-slate-600 mt-2">Community stargazing events, open telescope sessions, and observation trackers.</p>
+            </div>
+            <div class="border border-slate-200 bg-slate-50 p-6 rounded-xl flex justify-between items-center text-xs font-bold shadow-inner">
+                <div class="flex items-center gap-4">
+                    <i class="fa-solid fa-satellite-dish text-amber-700 text-sm"></i>
                     <div>
-                        <span class="font-medium text-zinc-400 block mb-1.5">Custodian Communities</span>
-                        <div class="flex flex-wrap gap-1.5">
-                            ${item.tribes.map(t => `<span class="bg-white/5 px-2.5 py-1 rounded text-[11px] text-zinc-400 border border-white/5">${t} People</span>`).join('')}
+                        <span class="text-[9px] text-amber-700 uppercase tracking-widest font-black">September 2026</span>
+                        <h4 class="text-slate-900 uppercase tracking-wider mt-1">Arusha Open Telescope Field Viewing Session</h4>
+                    </div>
+                </div>
+                <span class="text-[9px] bg-white border border-slate-200 text-slate-500 px-4 py-2 rounded-full uppercase tracking-widest">Public Event</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. MODULE: DATA CENTRE -->
+    <section id="datacenter-section" class="max-w-7xl mx-auto px-6 lg:px-8 py-24 scroll-mt-10">
+        <div class="max-w-3xl mb-12">
+            <p class="text-[10px] tracking-widest uppercase font-bold text-amber-700 mb-2">Scientific Metrics</p>
+            <h2 class="text-2xl md:text-3xl font-black text-slate-900 uppercase tracking-tight">Data Centre</h2>
+            <p class="text-sm text-slate-600 mt-2">Atmospheric clarity monitoring and dark sky measurement logging indexes.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center font-mono">
+            <div class="p-6 bg-white border border-slate-200 rounded-xl shadow-sm">
+                <span class="block text-2xl font-black text-slate-900 tracking-wider">84%</span>
+                <span class="text-[9px] uppercase tracking-widest text-slate-400 font-sans font-bold block mt-2">Clear Skies Average (Highlands)</span>
+            </div>
+            <div class="p-6 bg-white border border-slate-200 rounded-xl shadow-sm">
+                <span class="block text-2xl font-black text-slate-900 tracking-wider">1.2"</span>
+                <span class="text-[9px] uppercase tracking-widest text-slate-400 font-sans font-bold block mt-2">Atmospheric Seeing Scale</span>
+            </div>
+            <div class="p-6 bg-white border border-slate-200 rounded-xl shadow-sm">
+                <span class="block text-2xl font-black text-slate-900 tracking-wider">0.00 lx</span>
+                <span class="text-[9px] uppercase tracking-widest text-slate-400 font-sans font-bold block mt-2">Artificial Light Zenith Scale</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. MODULE: COMMUNITY -->
+    <section id="community-section" class="bg-white border-t border-slate-200 py-24 scroll-mt-10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="max-w-3xl mb-12">
+                <p class="text-[10px] tracking-widest uppercase font-bold text-amber-700 mb-2">Collaborative Knowledge Hub</p>
+                <h2 class="text-2xl md:text-3xl font-black text-slate-900 uppercase tracking-tight">Community Exchange</h2>
+                <p class="text-sm text-slate-600 mt-2">An open workspace enabling direct connection between field researchers and citizens tracking disappearing traditions.</p>
+            </div>
+            <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 text-center max-w-2xl mx-auto shadow-inner">
+                <p class="text-xs md:text-sm text-slate-600 mb-6 font-light">
+                    Have knowledge of specific sky mythology names or ancient celestial references from your local elders? Securely route details directly into our public processing queue.
+                </p>
+                <a href="mailto:contribute@aahp-tanzania.org" class="inline-block bg-slate-900 hover:bg-slate-800 text-[10px] font-bold tracking-widest uppercase text-white px-6 py-3.5 rounded-full transition-all">
+                    <i class="fa-solid fa-paper-plane mr-2"></i> Route Submission
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. MODULE: ABOUT -->
+    <section id="about-section" class="max-w-7xl mx-auto px-6 lg:px-8 py-24 scroll-mt-10">
+        <div class="max-w-3xl">
+            <p class="text-[10px] tracking-widest uppercase font-bold text-amber-700 mb-2">Mission Architecture</p>
+            <h2 class="text-2xl md:text-3xl font-black text-slate-900 uppercase tracking-tight mb-4">About the Portal</h2>
+            <p class="text-xs md:text-sm text-slate-600 leading-relaxed font-light max-w-2xl">
+                The African Astronomical Heritage Portal (Tanzania Network) is built as a highly robust, dynamic open-source application engine. Operating without relational backend account storage layers, it provides immediate access to cultural cosmic records for global citizens without dynamic tracking barriers.
+            </p>
+        </div>
+    </section>
+
+    <!-- 13. MODULE: ADMIN DASHBOARD (Data Conversion Component Matrix) -->
+    <section id="admin-section" class="bg-slate-100 border-t border-slate-200 py-24 scroll-mt-10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="mb-12">
+                <p class="text-[10px] tracking-widest uppercase font-bold text-amber-700 mb-2">Data Operations Control</p>
+                <h2 class="text-2xl md:text-3xl font-black text-slate-900 uppercase tracking-tight flex items-center gap-3">
+                    <i class="fa-solid fa-sliders text-slate-400 text-xl"></i> Admin Dashboard
+                </h2>
+                <p class="text-sm text-slate-600 mt-2">Since we operate client-side, use this parsing form to compile records into structural JSON nodes to append to the master static files directly.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                <!-- Data Form Input -->
+                <form id="adminForm" class="space-y-4 bg-white p-6 md:p-8 rounded-2xl border border-slate-200 shadow-sm text-xs font-bold tracking-tight text-slate-500" onsubmit="event.preventDefault();">
+                    <div>
+                        <label class="block uppercase tracking-wider mb-2">Artifact Name</label>
+                        <input type="text" id="formTitle" placeholder="e.g. KIMONDO CHA MBOZI" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-800 tracking-normal font-normal focus:outline-none focus:bg-white focus:border-amber-600" required/>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block uppercase tracking-wider mb-2">Region Matrix</label>
+                            <input type="text" id="formRegion" placeholder="e.g. MBEYA" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-800 tracking-normal font-normal focus:outline-none focus:bg-white focus:border-amber-600" required/>
+                        </div>
+                        <div>
+                            <label class="block uppercase tracking-wider mb-2">Custodian Group</label>
+                            <input type="text" id="formGroup" placeholder="e.g. NYIHA COMMUNITY" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-800 tracking-normal font-normal focus:outline-none focus:bg-white focus:border-amber-600" required/>
                         </div>
                     </div>
                     <div>
-                        <span class="font-medium text-zinc-400 block mb-1">Contemporary Scientific Overlay</span>
-                        <p class="text-zinc-400 font-mono text-[11px] italic bg-black/30 px-3 py-2 rounded-lg border border-white/5">${item.scientificMapping}</p>
+                        <label class="block uppercase tracking-wider mb-2">Technical Description</label>
+                        <textarea id="formDesc" rows="4" placeholder="Log deep historic details..." class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-800 tracking-normal font-normal focus:outline-none focus:bg-white focus:border-amber-600" required></textarea>
                     </div>
-                    <div>
-                        <span class="font-medium text-zinc-400 block mb-1.5"><i class="fa-solid fa-pen-fancy mr-1 text-[#C5A880]/70 text-[10px]"></i> Field Research Citations</span>
-                        <p class="text-[11px] leading-relaxed text-zinc-500 bg-black/40 p-3.5 border border-white/5 rounded-xl font-mono">
-                            ${item.researcherNotes}
-                        </p>
-                    </div>
-                </div>
-            `;
-        }
-
-        function filterArchive() {
-            const query = searchInput.value.toLowerCase();
-            const selectedRegion = regionFilter.value;
-            
-            const filteredData = tanzanianAstronomyData.filter(item => {
-                const matchesSearch = 
-                    item.traditionalName.toLowerCase().includes(query) ||
-                    item.translation.toLowerCase().includes(query) ||
-                    item.tribes.some(t => t.toLowerCase().includes(query)) ||
-                    item.scientificMapping.toLowerCase().includes(query);
-                    
-                const matchesRegion = selectedRegion === 'all' || item.region === selectedRegion;
+                    <button type="button" onclick="generateJSON()" class="w-full bg-slate-900 text-white font-bold px-4 py-3 rounded-full text-[10px] tracking-widest uppercase hover:bg-amber-600 transition-colors">
+                        <i class="fa-solid fa-code mr-2"></i> Parse Record Block
+                    </button>
+                </form>
                 
-                return matchesSearch && matchesRegion;
+                <!-- Data Output Container Codeblock -->
+                <div class="w-full">
+                    <label class="block text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">Formatted Data Node Output</label>
+                    <pre id="jsonOutput" class="w-full h-64 bg-slate-900 border border-slate-950 rounded-2xl p-5 text-xs font-mono text-emerald-400 overflow-y-auto select-all shadow-inner leading-relaxed">System monitoring idle. Ready to parse record entries...</pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SYSTEM FOOTER -->
+    <footer class="bg-slate-900 py-12 text-center text-[10px] uppercase tracking-widest font-bold text-slate-500 border-t border-slate-950">
+        <p>© 2026 African Astronomical Heritage Portal - Tanzania Network. Open-Source Static Architecture.</p>
+    </footer>
+
+    <!-- CORE FUNCTIONAL JAVASCRIPT LOGIC -->
+    <script>
+        // Responsive Menu Operations Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
             });
-            
-            renderArchive(filteredData);
+        });
+
+        // Local Master Static Array payload for Heritage Database
+        const heritageDatabase = [
+            { id: 1, title: "Mbozi Meteorite (Kimondo)", region: "Mbeya", group: "Nyiha Community", description: "Massive 16-ton nickel-iron space rock structure tracked globally as a phenomenal physical impact node and long held as a protected traditional spatial asset.", tag: "Meteorite" },
+            { id: 2, title: "Kondoa Solstice Rock Art", region: "Dodoma", group: "Hunter-Gatherer Ancestors", description: "Complex structural painted ochre alignments mapping recurring lunar cycles and sun positions on shelter rock walls inside deep historic sites.", tag: "Archaeological" },
+            { id: 3, title: "Kilimia Pleiades Tracker", region: "Northern Tanzania", group: "Maasai / Sukuma Peoples", description: "Living astronomical observation techniques evaluating multi-star configurations to precisely regulate farming calendars and cattle migration paths.", tag: "Starlore" }
+        ];
+
+        const gridElement = document.getElementById('databaseGrid');
+        const searchInput = document.getElementById('searchBar');
+
+        // Dynamic Display Rendering Engine
+        function renderGrid(dataset) {
+            gridElement.innerHTML = '';
+            if (dataset.length === 0) {
+                gridElement.innerHTML = `<p class="col-span-full text-center text-slate-400 text-xs font-bold uppercase tracking-widest py-12">No data nodes matched your filter string.</p>`;
+                return;
+            }
+            dataset.forEach(entry => {
+                const cardHTML = `
+                    <div class="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between items-start">
+                        <div class="w-full">
+                            <div class="flex items-center justify-between text-[9px] uppercase font-black tracking-widest mb-4">
+                                <span class="text-amber-700 bg-amber-50 px-2 py-1 rounded">${entry.tag}</span>
+                                <span class="text-slate-400 font-bold"><i class="fa-solid fa-location-dot mr-1 text-slate-300"></i>${entry.region}</span>
+                            </div>
+                            <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2">${entry.title}</h3>
+                            <p class="text-xs text-slate-600 leading-relaxed font-light mb-6">${entry.description}</p>
+                        </div>
+                        <div class="w-full pt-4 border-t border-slate-100 text-[9px] uppercase tracking-wider font-bold text-slate-400 flex items-center justify-between">
+                            <span>Custodian: <span class="text-slate-700">${entry.group}</span></span>
+                        </div>
+                    </div>`;
+                gridElement.insertAdjacentHTML('beforeend', cardHTML);
+            });
         }
 
-        searchInput.addEventListener('input', filterArchive);
-        regionFilter.addEventListener('change', filterArchive);
+        // Real-Time Query Filter Implementation
+        searchInput.addEventListener('input', (event) => {
+            const lookFor = event.target.value.toLowerCase();
+            const matchingNodes = heritageDatabase.filter(data => 
+                data.title.toLowerCase().includes(lookFor) || 
+                data.region.toLowerCase().includes(lookFor) || 
+                data.description.toLowerCase().includes(lookFor) ||
+                data.group.toLowerCase().includes(lookFor)
+            );
+            renderGrid(matchingNodes);
+        });
 
-        closePlacardBtn.onclick = () => {
-            studyPlacard.classList.add('translate-x-full');
-        };
+        // Admin Dashboard Input Form Processing to JSON code strings
+        function generateJSON() {
+            const title = document.getElementById('formTitle').value;
+            const region = document.getElementById('formRegion').value;
+            const group = document.getElementById('formGroup').value;
+            const desc = document.getElementById('formDesc').value;
 
-        renderArchive(tanzanianAstronomyData);
+            if(!title || !region || !group || !desc) {
+                document.getElementById('jsonOutput').innerText = "ERROR: Complete all layout form field inputs first.";
+                return;
+            }
+
+            const parsedObject = {
+                id: Date.now(),
+                title: title.toUpperCase(),
+                region: region.toUpperCase(),
+                group: group.toUpperCase(),
+                description: desc,
+                tag: "COMMUNITY SUBMISSION"
+            };
+
+            document.getElementById('jsonOutput').innerText = JSON.stringify(parsedObject, null, 4);
+        }
+
+        // Execute initial UI display rendering metrics
+        renderGrid(heritageDatabase);
     </script>
 </body>
 </html>
