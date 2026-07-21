@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-950 text-slate-100">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donate | Tanzania Agricultural & Pastoral Heritage Programme (TAPHP)</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    /* Custom CSS animations and interactive active states */
+    .bento-card {
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .bento-card:hover {
+      transform: translateY(-3px);
+    }
+    .bento-card.active {
+      border-color: #10b981;
+      background-color: rgba(16, 185, 129, 0.12);
+      box-shadow: 0 0 25px rgba(16, 185, 129, 0.2);
+    }
+  </style>
+</head>
+<body class="min-h-full flex flex-col justify-between py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto font-sans antialiased">
+
+  <!-- Header Section -->
+  <header class="text-center max-w-3xl mx-auto mb-12">
+    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold tracking-wide uppercase mb-4">
+      <i data-lucide="sprout" class="w-4 h-4"></i> TAPHP Heritage Fund
+    </div>
+    <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+      Empower Tanzanian Farmers & Pastoralists
+    </h1>
+    <p class="mt-4 text-slate-400 text-sm sm:text-base leading-relaxed">
+      Support sustainable agriculture, livestock development, water security, and climate resilience across Tanzania with complete financial transparency.
+    </p>
+
+    <!-- Progress Steps -->
+    <div class="mt-8 flex justify-center items-center gap-3 sm:gap-6 text-xs sm:text-sm font-medium">
+      <div id="step1-indicator" class="flex items-center gap-2 text-emerald-400">
+        <span class="w-7 h-7 rounded-full bg-emerald-500/20 border border-emerald-500 flex items-center justify-center font-bold text-xs">1</span>
+        <span>Select Amount</span>
+      </div>
+      <div class="w-10 h-[1px] bg-slate-800"></div>
+      <div id="step2-indicator" class="flex items-center gap-2 text-slate-500">
+        <span class="w-7 h-7 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-xs">2</span>
+        <span>Impact Budget</span>
+      </div>
+      <div class="w-10 h-[1px] bg-slate-800"></div>
+      <div id="step3-indicator" class="flex items-center gap-2 text-slate-500">
+        <span class="w-7 h-7 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-xs">3</span>
+        <span>Payment</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Grid Layout -->
+  <main class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+    <!-- Left Column: Bento Grid & Selection (7 Cols) -->
+    <section class="lg:col-span-7 space-y-8">
+
+      <!-- Section: Currency Switcher & Preset Amounts -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between bg-slate-900/80 p-3 rounded-xl border border-slate-800">
+          <h2 class="text-sm font-bold text-slate-200 flex items-center gap-2">
+            <i data-lucide="coins" class="w-4 h-4 text-emerald-400"></i> Select Donation Currency
+          </h2>
+          
+          <!-- Dynamic Currency Selector -->
+          <div class="flex items-center gap-2">
+            <select id="currency-select" onchange="changeCurrency(this.value)" class="bg-slate-950 border border-slate-700 text-emerald-400 font-bold text-xs rounded-lg px-3 py-1.5 focus:ring-2 focus:ring-emerald-500 outline-none cursor-pointer">
+              <option value="TZS" selected>TZS (Tanzanian Shilling)</option>
+              <option value="USD">USD (US Dollar)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Bento Grid Preset Cards -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="preset-grid">
+          <!-- Dynamically populated via JS -->
+        </div>
+      </div>
+
+      <!-- Section: Custom Amount Input -->
+      <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-5 space-y-3">
+        <label for="customAmount" class="block text-sm font-semibold text-slate-300">
+          Or Enter Custom Donation Amount (<span class="currency-label">TZS</span>)
+        </label>
+        <div class="relative rounded-xl shadow-sm">
+          <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
+            <span class="text-slate-400 font-bold text-sm currency-label">TZS</span>
+          </div>
+          <input type="number" name="customAmount" id="customAmount" min="1" step="any" placeholder="e.g. 75,000" 
+                 class="block w-full rounded-xl border-0 bg-slate-950 py-3.5 pl-16 pr-4 text-white ring-1 ring-inset ring-slate-800 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-emerald-500 text-base font-bold transition-all"
+                 oninput="handleCustomInput(this.value)">
+        </div>
+        <p class="text-xs text-slate-500">Minimum donation threshold is <span id="min-threshold-label">TZS 5,000</span>.</p>
+      </div>
+
+      <!-- Section: Payment Methods -->
+      <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-5 space-y-4">
+        <h3 class="text-sm font-bold text-slate-200 flex items-center gap-2">
+          <i data-lucide="credit-card" class="w-4 h-4 text-emerald-400"></i> Select Payment Method
+        </h3>
+        
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          <label class="cursor-pointer">
+            <input type="radio" name="payment_method" value="M-Pesa" class="peer sr-only" checked onchange="updatePaymentMethod(this.value)">
+            <div class="p-3.5 rounded-xl border border-slate-800 bg-slate-950 peer-checked:border-emerald-500 peer-checked:bg-emerald-500/10 text-center flex flex-col items-center justify-center transition-all">
+              <span class="font-bold text-red-500 text-sm">M-Pesa</span>
+              <span class="text-[10px] text-slate-400 mt-0.5">Vodacom Tanzania</span>
+            </div>
+          </label>
+
+          <label class="cursor-pointer">
+            <input type="radio" name="payment_method" value="Tigo Pesa" class="peer sr-only" onchange="updatePaymentMethod(this.value)">
+            <div class="p-3.5 rounded-xl border border-slate-800 bg-slate-950 peer-checked:border-emerald-500 peer-checked:bg-emerald-500/10 text-center flex flex-col items-center justify-center transition-all">
+              <span class="font-bold text-sky-400 text-sm">PayPal</span>
+              <span class="text-[10px] text-slate-400 mt-0.5">PayPal DPO</span>
+            </div>
+          </label>
+
+          <label class="cursor-pointer">
+            <input type="radio" name="payment_method" value="Airtel Money" class="peer sr-only" onchange="updatePaymentMethod(this.value)">
+            <div class="p-3.5 rounded-xl border border-slate-800 bg-slate-950 peer-checked:border-emerald-500 peer-checked:bg-emerald-500/10 text-center flex flex-col items-center justify-center transition-all">
+              <span class="font-bold text-rose-500 text-sm">Airtel Money</span>
+              <span class="text-[10px] text-slate-400 mt-0.5">Airtel Tanzania</span>
+            </div>
+          </label>
+
+          <label class="cursor-pointer">
+            <input type="radio" name="payment_method" value="Mixx by Yas" class="peer sr-only" onchange="updatePaymentMethod(this.value)">
+            <div class="p-3.5 rounded-xl border border-slate-800 bg-slate-950 peer-checked:border-emerald-500 peer-checked:bg-emerald-500/10 text-center flex flex-col items-center justify-center transition-all">
+              <span class="font-bold text-amber-400 text-sm">Mixx by Yas</span>
+              <span class="text-[10px] text-slate-400 mt-0.5">Yas Tanzania</span>
+            </div>
+          </label>
+
+          <label class="cursor-pointer">
+            <input type="radio" name="payment_method" value="HaloPesa" class="peer sr-only" onchange="updatePaymentMethod(this.value)">
+            <div class="p-3.5 rounded-xl border border-slate-800 bg-slate-950 peer-checked:border-emerald-500 peer-checked:bg-emerald-500/10 text-center flex flex-col items-center justify-center transition-all">
+              <span class="font-bold text-orange-400 text-sm">HaloPesa</span>
+              <span class="text-[10px] text-slate-400 mt-0.5">Halotel Tanzania</span>
+            </div>
+          </label>
+
+          <label class="cursor-pointer">
+            <input type="radio" name="payment_method" value="Card / Bank Wire" class="peer sr-only" onchange="updatePaymentMethod(this.value)">
+            <div class="p-3.5 rounded-xl border border-slate-800 bg-slate-950 peer-checked:border-emerald-500 peer-checked:bg-emerald-500/10 text-center flex flex-col items-center justify-center transition-all">
+              <span class="font-bold text-emerald-400 text-sm">Card / Bank</span>
+              <span class="text-[10px] text-slate-400 mt-0.5">Visa / MasterCard / Swift</span>
+            </div>
+          </label>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Right Column: Budget Simulation & Program Allocation (5 Cols) -->
+    <section class="lg:col-span-5 sticky top-6 space-y-6">
+
+      <!-- Financial Calculation Card -->
+      <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 backdrop-blur-xl shadow-2xl space-y-6">
+
+        <div class="border-b border-slate-800 pb-4 flex items-center justify-between">
+          <h2 class="text-lg font-extrabold text-white flex items-center gap-2">
+            <i data-lucide="calculator" class="w-5 h-5 text-emerald-400"></i> Budget Breakdown
+          </h2>
+          <span class="text-xs bg-slate-800 text-emerald-400 px-3 py-1 rounded-full font-bold border border-slate-700" id="selected-method-badge">M-Pesa</span>
+        </div>
+
+        <!-- Simulation Calculations -->
+        <div class="space-y-3 text-sm">
+          <div class="flex justify-between items-center">
+            <span class="text-slate-400">Base Contribution</span>
+            <span class="font-bold text-white" id="summary-donation">TZS 50,000</span>
+          </div>
+
+          <div class="flex justify-between items-center">
+            <span class="text-slate-400 flex items-center gap-1.5">
+              Processing Fee
+              <i data-lucide="info" class="w-3.5 h-3.5 text-slate-500" title="Standard payment gateway fee (1.5%)"></i>
+            </span>
+            <span class="font-semibold text-slate-300" id="summary-fee">TZS 750</span>
+          </div>
+
+          <div class="flex justify-between items-center">
+            <span class="text-slate-400">VAT (18% on Fee)</span>
+            <span class="font-semibold text-slate-300" id="summary-vat">TZS 135</span>
+          </div>
+
+          <div class="border-t border-slate-800 pt-3 flex justify-between items-center text-base">
+            <span class="font-bold text-slate-200">Total Payable Amount</span>
+            <span class="font-extrabold text-emerald-400 text-xl" id="summary-total">TZS 50,885</span>
+          </div>
+        </div>
+
+        <!-- Net Funding Box -->
+        <div class="bg-emerald-500/10 border border-emerald-500/20 rounded-xl p-4 text-xs space-y-1">
+          <div class="flex justify-between items-center font-bold text-emerald-300">
+            <span>Direct Field Funding Received:</span>
+            <span class="font-black text-sm text-emerald-200" id="summary-received">TZS 50,000</span>
+          </div>
+          <p class="text-slate-400 leading-relaxed pt-1">
+            * 100% of your donation is directly allocated to field operations below.
+          </p>
+        </div>
+
+        <!-- Dynamic Programme Pillar Allocation Breakdown -->
+        <div class="border-t border-slate-800 pt-5 space-y-3">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center justify-between">
+            <span>TAPHP Programme Pillars Impact</span>
+            <span class="text-[10px] text-emerald-400 font-normal">Real-time split</span>
+          </h3>
+
+          <div class="space-y-2.5 max-h-56 overflow-y-auto pr-1 text-xs text-slate-300">
+            <!-- Sustainable Agriculture -->
+            <div class="space-y-1">
+              <div class="flex justify-between text-[11px]">
+                <span class="flex items-center gap-1.5"><i data-lucide="sprout" class="w-3.5 h-3.5 text-emerald-400"></i> Sustainable Agriculture (20%)</span>
+                <span class="font-semibold text-slate-200" id="alloc-agri">TZS 10,000</span>
+              </div>
+              <div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
+                <div class="bg-emerald-500 h-full w-[20%]"></div>
+              </div>
+            </div>
+
+            <!-- Livestock & Pastoral Development -->
+            <div class="space-y-1">
+              <div class="flex justify-between text-[11px]">
+                <span class="flex items-center gap-1.5"><i data-lucide="footprints" class="w-3.5 h-3.5 text-amber-400"></i> Livestock & Pastoral Dev (18%)</span>
+                <span class="font-semibold text-slate-200" id="alloc-livestock">TZS 9,000</span>
+              </div>
+              <div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
+                <div class="bg-amber-500 h-full w-[18%]"></div>
+              </div>
+            </div>
+
+            <!-- Water & Irrigation -->
+            <div class="space-y-1">
+              <div class="flex justify-between text-[11px]">
+                <span class="flex items-center gap-1.5"><i data-lucide="droplets" class="w-3.5 h-3.5 text-sky-400"></i> Water & Irrigation (15%)</span>
+                <span class="font-semibold text-slate-200" id="alloc-water">TZS 7,500</span>
+              </div>
+              <div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
+                <div class="bg-sky-500 h-full w-[15%]"></div>
+              </div>
+            </div>
+
+            <!-- Climate Resilience -->
+            <div class="space-y-1">
+              <div class="flex justify-between text-[11px]">
+                <span class="flex items-center gap-1.5"><i data-lucide="globe" class="w-3.5 h-3.5 text-teal-400"></i> Climate Resilience (12%)</span>
+                <span class="font-semibold text-slate-200" id="alloc-climate">TZS 6,000</span>
+              </div>
+              <div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
+                <div class="bg-teal-500 h-full w-[12%]"></div>
+              </div>
+            </div>
+
+            <!-- Farmer Training -->
+            <div class="space-y-1">
+              <div class="flex justify-between text-[11px]">
+                <span class="flex items-center gap-1.5"><i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-indigo-400"></i> Farmer & Pastoralist Training (10%)</span>
+                <span class="font-semibold text-slate-200" id="alloc-training">TZS 5,000</span>
+              </div>
+              <div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
+                <div class="bg-indigo-500 h-full w-[10%]"></div>
+              </div>
+            </div>
+
+            <!-- Equipment & Farm Tools -->
+            <div class="space-y-1">
+              <div class="flex justify-between text-[11px]">
+                <span class="flex items-center gap-1.5"><i data-lucide="tractor" class="w-3.5 h-3.5 text-orange-400"></i> Equipment & Farm Tools (8%)</span>
+                <span class="font-semibold text-slate-200" id="alloc-equipment">TZS 4,000</span>
+              </div>
+              <div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
+                <div class="bg-orange-500 h-full w-[8%]"></div>
+              </div>
+            </div>
+
+            <!-- Community Engagement -->
+            <div class="space-y-1">
+              <div class="flex justify-between text-[11px]">
+                <span class="flex items-center gap-1.5"><i data-lucide="users" class="w-3.5 h-3.5 text-pink-400"></i> Community Engagement (5%)</span>
+                <span class="font-semibold text-slate-200" id="alloc-community">TZS 2,500</span>
+              </div>
+              <div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
+                <div class="bg-pink-500 h-full w-[5%]"></div>
+              </div>
+            </div>
+
+            <!-- Logistics & Operations -->
+            <div class="space-y-1">
+              <div class="flex justify-between text-[11px]">
+                <span class="flex items-center gap-1.5"><i data-lucide="truck" class="w-3.5 h-3.5 text-purple-400"></i> Logistics & Field Operations (4%)</span>
+                <span class="font-semibold text-slate-200" id="alloc-logistics">TZS 2,000</span>
+              </div>
+              <div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
+                <div class="bg-purple-500 h-full w-[4%]"></div>
+              </div>
+            </div>
+
+            <!-- Monitoring & Impact -->
+            <div class="space-y-1">
+              <div class="flex justify-between text-[11px]">
+                <span class="flex items-center gap-1.5"><i data-lucide="bar-chart-3" class="w-3.5 h-3.5 text-cyan-400"></i> Monitoring & Impact Assessment (3%)</span>
+                <span class="font-semibold text-slate-200" id="alloc-monitoring">TZS 1,500</span>
+              </div>
+              <div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
+                <div class="bg-cyan-500 h-full w-[3%]"></div>
+              </div>
+            </div>
+
+            <!-- Programme Administration -->
+            <div class="space-y-1">
+              <div class="flex justify-between text-[11px]">
+                <span class="flex items-center gap-1.5"><i data-lucide="building-2" class="w-3.5 h-3.5 text-slate-400"></i> Programme Administration (3%)</span>
+                <span class="font-semibold text-slate-200" id="alloc-admin">TZS 1,500</span>
+              </div>
+              <div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
+                <div class="bg-slate-500 h-full w-[3%]"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Action Button -->
+        <button type="button" onclick="confirmPayment()" class="w-full bg-emerald-500 hover:bg-emerald-400 active:bg-emerald-600 text-slate-950 font-extrabold py-4 px-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 text-base">
+          <span>Complete Contribution</span>
+          <i data-lucide="arrow-right" class="w-5 h-5"></i>
+        </button>
+
+        <div class="text-center">
+          <p class="text-[11px] text-slate-500 flex items-center justify-center gap-1">
+            <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-500"></i> Encrypted 256-bit Secure Donation Channel
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-16 text-center text-xs text-slate-600 border-t border-slate-900 pt-8">
+    <p>&copy; 2026 Tanzania Agricultural & Pastoral Heritage Programme (TAPHP). All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript Logic -->
+  <script>
+    // Configuration & State
+    let currentCurrency = 'TZS';
+    let currentAmount = 50000;
+    let selectedPaymentMethod = "M-Pesa";
+
+    // Presets for supported currencies
+    const presetsData = {
+      TZS: [
+        { label: 'Seed Pack', amount: 5000 },
+        { label: 'Tree Planting', amount: 10000 },
+        { label: 'Vet Care', amount: 20000 },
+        { label: 'Farmer Training', amount: 50000, popular: true },
+        { label: 'Tool Kits', amount: 100000 },
+        { label: 'Water Irrigation', amount: 200000 },
+        { label: 'Pastoralist Well', amount: 500000 },
+        { label: 'Heritage Patron', amount: 1000000 }
+      ],
+      USD: [
+        { label: 'Seed Pack', amount: 2 },
+        { label: 'Tree Planting', amount: 5 },
+        { label: 'Vet Care', amount: 10 },
+        { label: 'Farmer Training', amount: 20, popular: true },
+        { label: 'Tool Kits', amount: 50 },
+        { label: 'Water Irrigation', amount: 100 },
+        { label: 'Pastoralist Well', amount: 250 },
+        { label: 'Heritage Patron', amount: 500 }
+      ]
+    };
+
+    const minThresholds = { TZS: 5000, USD: 2 };
+
+    // Program budget allocation weights (Percentages)
+    const pillarWeights = {
+      agri: 0.20,
+      livestock: 0.18,
+      water: 0.15,
+      climate: 0.12,
+      training: 0.10,
+      equipment: 0.08,
+      community: 0.05,
+      logistics: 0.04,
+      monitoring: 0.03,
+      admin: 0.03
+    };
+
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Utility: Format Currency
+    function formatCurrency(amount, currency = currentCurrency) {
+      if (currency === 'USD') {
+        return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(amount);
+      }
+      return 'TZS ' + new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 }).format(Math.round(amount));
+    }
+
+    // Render Preset Cards Dynamically based on Currency
+    function renderPresets() {
+      const grid = document.getElementById('preset-grid');
+      grid.innerHTML = '';
+
+      const presets = presetsData[currentCurrency];
+      presets.forEach((preset, index) => {
+        const isPopular = preset.popular;
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.onclick = function() { selectPreset(preset.amount, this); };
+
+        if (isPopular) {
+          button.className = 'bento-card p-4 rounded-2xl border border-emerald-500/40 bg-emerald-500/10 hover:bg-emerald-500/20 text-left flex flex-col justify-between group relative overflow-hidden active';
+          button.innerHTML = `
+            <span class="absolute top-0 right-0 bg-emerald-500 text-[9px] font-black text-slate-950 px-2 py-0.5 rounded-bl-lg uppercase tracking-wider">Popular</span>
+            <span class="text-xs text-emerald-300">${preset.label}</span>
+            <span class="text-lg font-extrabold text-white mt-2">${preset.amount.toLocaleString()}</span>
+            <span class="text-[10px] text-emerald-300/70 font-medium mt-1">${currentCurrency}</span>
+          `;
+        } else {
+          button.className = 'bento-card p-4 rounded-2xl border border-slate-800 bg-slate-900/60 hover:bg-slate-900 text-left flex flex-col justify-between group';
+          button.innerHTML = `
+            <span class="text-xs text-slate-400 group-hover:text-slate-300">${preset.label}</span>
+            <span class="text-lg font-extrabold text-white mt-2">${preset.amount.toLocaleString()}</span>
+            <span class="text-[10px] text-slate-500 font-medium mt-1">${currentCurrency}</span>
+          `;
+        }
+        grid.appendChild(button);
+      });
+    }
+
+    // Currency Switcher Logic
+    function changeCurrency(newCurrency) {
+      currentCurrency = newCurrency;
+
+      // Update UI Labels
+      document.querySelectorAll('.currency-label').forEach(el => el.innerText = currentCurrency);
+      document.getElementById('min-threshold-label').innerText = formatCurrency(minThresholds[currentCurrency]);
+
+      // Re-render Presets & Reset Default Selection
+      renderPresets();
+      const defaultAmount = presetsData[currentCurrency].find(p => p.popular).amount;
+      currentAmount = defaultAmount;
+      document.getElementById('customAmount').value = '';
+
+      calculateBudget(currentAmount);
+    }
+
+    // Engine: Calculation and Allocation Updates
+    function calculateBudget(amount) {
+      if (isNaN(amount) || amount <= 0) {
+        amount = 0;
+      }
+
+      // Financials
+      const fee = amount * 0.015; // 1.5% processing fee
+      const vat = fee * 0.18;    // 18% VAT on fee
+      const totalToPay = amount + fee + vat;
+
+      // Update Summary UI
+      document.getElementById('summary-donation').innerText = formatCurrency(amount);
+      document.getElementById('summary-fee').innerText = formatCurrency(fee);
+      document.getElementById('summary-vat').innerText = formatCurrency(vat);
+      document.getElementById('summary-total').innerText = formatCurrency(totalToPay);
+      document.getElementById('summary-received').innerText = formatCurrency(amount);
+
+      // Update Dynamic Program Allocation Amounts
+      document.getElementById('alloc-agri').innerText = formatCurrency(amount * pillarWeights.agri);
+      document.getElementById('alloc-livestock').innerText = formatCurrency(amount * pillarWeights.livestock);
+      document.getElementById('alloc-water').innerText = formatCurrency(amount * pillarWeights.water);
+      document.getElementById('alloc-climate').innerText = formatCurrency(amount * pillarWeights.climate);
+      document.getElementById('alloc-training').innerText = formatCurrency(amount * pillarWeights.training);
+      document.getElementById('alloc-equipment').innerText = formatCurrency(amount * pillarWeights.equipment);
+      document.getElementById('alloc-community').innerText = formatCurrency(amount * pillarWeights.community);
+      document.getElementById('alloc-logistics').innerText = formatCurrency(amount * pillarWeights.logistics);
+      document.getElementById('alloc-monitoring').innerText = formatCurrency(amount * pillarWeights.monitoring);
+      document.getElementById('alloc-admin').innerText = formatCurrency(amount * pillarWeights.admin);
+    }
+
+    // Event: Selecting Preset Bento Cards
+    function selectPreset(amount, cardElement) {
+      currentAmount = amount;
+      document.getElementById('customAmount').value = '';
+
+      document.querySelectorAll('.bento-card').forEach(card => {
+        card.classList.remove('active');
+      });
+
+      cardElement.classList.add('active');
+      calculateBudget(currentAmount);
+    }
+
+    // Event: Custom Amount Input
+    function handleCustomInput(value) {
+      const parsedValue = parseFloat(value);
+
+      document.querySelectorAll('.bento-card').forEach(card => {
+        card.classList.remove('active');
+      });
+
+      currentAmount = (!value || parsedValue <= 0) ? 0 : parsedValue;
+      calculateBudget(currentAmount);
+    }
+
+    // Event: Payment Method Change
+    function updatePaymentMethod(methodName) {
+      selectedPaymentMethod = methodName;
+      document.getElementById('selected-method-badge').innerText = methodName;
+    }
+
+    // Action: Final Payment Confirmation Trigger
+    function confirmPayment() {
+      const minAmount = minThresholds[currentCurrency];
+      if (currentAmount < minAmount) {
+        alert(`Please enter or select a donation amount of at least ${formatCurrency(minAmount)}.`);
+        return;
+      }
+
+      alert(`Thank you for supporting TAPHP!\n\nYou are proceeding to donate ${formatCurrency(currentAmount)} via ${selectedPaymentMethod}.`);
+    }
+
+    // Initialize Page
+    renderPresets();
+    calculateBudget(currentAmount);
+  </script>
+</body>
+</html>
