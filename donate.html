@@ -14,64 +14,75 @@
       transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .bento-card:hover {
-      transform: translateY(-3px);
+      transform: translateY(-2px);
     }
     .bento-card.active {
       border-color: #10b981;
       background-color: rgba(16, 185, 129, 0.12);
-      box-shadow: 0 0 25px rgba(16, 185, 129, 0.2);
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+    }
+    /* Custom scrollbar styling for compact impact breakdown */
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: rgba(15, 23, 42, 0.6);
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(51, 65, 85, 0.8);
+      border-radius: 4px;
     }
   </style>
 </head>
-<body class="min-h-full flex flex-col justify-between py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto font-sans antialiased">
+<body class="min-h-full flex flex-col justify-between py-6 sm:py-10 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto font-sans antialiased selection:bg-emerald-500 selection:text-slate-950">
 
   <!-- Header Section -->
-  <header class="text-center max-w-3xl mx-auto mb-12">
-    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold tracking-wide uppercase mb-4">
-      <i data-lucide="sprout" class="w-4 h-4"></i> TAPHP Heritage Fund
+  <header class="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold tracking-wide uppercase mb-3 sm:mb-4">
+      <i data-lucide="sprout" class="w-4 h-4 shrink-0"></i> TAPHP Heritage Fund
     </div>
-    <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+    <h1 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
       Empower Tanzanian Farmers & Pastoralists
     </h1>
-    <p class="mt-4 text-slate-400 text-sm sm:text-base leading-relaxed">
+    <p class="mt-3 text-slate-400 text-xs sm:text-base leading-relaxed px-2 sm:px-0">
       Support sustainable agriculture, livestock development, water security, and climate resilience across Tanzania with complete financial transparency.
     </p>
 
     <!-- Progress Steps -->
-    <div class="mt-8 flex justify-center items-center gap-3 sm:gap-6 text-xs sm:text-sm font-medium">
-      <div id="step1-indicator" class="flex items-center gap-2 text-emerald-400">
-        <span class="w-7 h-7 rounded-full bg-emerald-500/20 border border-emerald-500 flex items-center justify-center font-bold text-xs">1</span>
-        <span>Select Amount</span>
+    <div class="mt-6 sm:mt-8 flex justify-center items-center gap-2 sm:gap-6 text-xs sm:text-sm font-medium">
+      <div id="step1-indicator" class="flex items-center gap-1.5 sm:gap-2 text-emerald-400">
+        <span class="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-emerald-500/20 border border-emerald-500 flex items-center justify-center font-bold text-[11px] sm:text-xs">1</span>
+        <span class="text-[11px] sm:text-sm">Select Amount</span>
       </div>
-      <div class="w-10 h-[1px] bg-slate-800"></div>
-      <div id="step2-indicator" class="flex items-center gap-2 text-slate-500">
-        <span class="w-7 h-7 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-xs">2</span>
-        <span>Impact Budget</span>
+      <div class="hidden sm:block w-8 sm:w-10 h-[1px] bg-slate-800"></div>
+      <div id="step2-indicator" class="flex items-center gap-1.5 sm:gap-2 text-slate-500">
+        <span class="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-[11px] sm:text-xs">2</span>
+        <span class="text-[11px] sm:text-sm">Impact Budget</span>
       </div>
-      <div class="w-10 h-[1px] bg-slate-800"></div>
-      <div id="step3-indicator" class="flex items-center gap-2 text-slate-500">
-        <span class="w-7 h-7 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-xs">3</span>
-        <span>Payment</span>
+      <div class="hidden sm:block w-8 sm:w-10 h-[1px] bg-slate-800"></div>
+      <div id="step3-indicator" class="flex items-center gap-1.5 sm:gap-2 text-slate-500">
+        <span class="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-[11px] sm:text-xs">3</span>
+        <span class="text-[11px] sm:text-sm">Payment</span>
       </div>
     </div>
   </header>
 
   <!-- Main Grid Layout -->
-  <main class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+  <main class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
 
     <!-- Left Column: Bento Grid & Selection (7 Cols) -->
-    <section class="lg:col-span-7 space-y-8">
+    <section class="lg:col-span-7 space-y-6 sm:space-y-8">
 
       <!-- Section: Currency Switcher & Preset Amounts -->
       <div class="space-y-4">
-        <div class="flex items-center justify-between bg-slate-900/80 p-3 rounded-xl border border-slate-800">
-          <h2 class="text-sm font-bold text-slate-200 flex items-center gap-2">
-            <i data-lucide="coins" class="w-4 h-4 text-emerald-400"></i> Select Donation Currency
+        <div class="flex flex-row items-center justify-between bg-slate-900/80 p-3 sm:p-4 rounded-xl border border-slate-800 gap-2">
+          <h2 class="text-xs sm:text-sm font-bold text-slate-200 flex items-center gap-2 shrink-0">
+            <i data-lucide="coins" class="w-4 h-4 text-emerald-400 shrink-0"></i> <span>Donation Currency</span>
           </h2>
           
           <!-- Dynamic Currency Selector -->
           <div class="flex items-center gap-2">
-            <select id="currency-select" onchange="changeCurrency(this.value)" class="bg-slate-950 border border-slate-700 text-emerald-400 font-bold text-xs rounded-lg px-3 py-1.5 focus:ring-2 focus:ring-emerald-500 outline-none cursor-pointer">
+            <select id="currency-select" onchange="changeCurrency(this.value)" class="bg-slate-950 border border-slate-700 text-emerald-400 font-bold text-xs rounded-lg px-2.5 py-1.5 sm:px-3 sm:py-2 focus:ring-2 focus:ring-emerald-500 outline-none cursor-pointer">
               <option value="TZS" selected>TZS (Tanzanian Shilling)</option>
               <option value="USD">USD (US Dollar)</option>
             </select>
@@ -79,79 +90,79 @@
         </div>
 
         <!-- Bento Grid Preset Cards -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="preset-grid">
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3" id="preset-grid">
           <!-- Dynamically populated via JS -->
         </div>
       </div>
 
       <!-- Section: Custom Amount Input -->
-      <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-5 space-y-3">
-        <label for="customAmount" class="block text-sm font-semibold text-slate-300">
+      <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 sm:p-5 space-y-3">
+        <label for="customAmount" class="block text-xs sm:text-sm font-semibold text-slate-300">
           Or Enter Custom Donation Amount (<span class="currency-label">TZS</span>)
         </label>
         <div class="relative rounded-xl shadow-sm">
-          <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
-            <span class="text-slate-400 font-bold text-sm currency-label">TZS</span>
+          <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 sm:pl-4">
+            <span class="text-slate-400 font-bold text-xs sm:text-sm currency-label">TZS</span>
           </div>
           <input type="number" name="customAmount" id="customAmount" min="1" step="any" placeholder="e.g. 75,000" 
-                 class="block w-full rounded-xl border-0 bg-slate-950 py-3.5 pl-16 pr-4 text-white ring-1 ring-inset ring-slate-800 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-emerald-500 text-base font-bold transition-all"
+                 class="block w-full rounded-xl border-0 bg-slate-950 py-3 sm:py-3.5 pl-14 sm:pl-16 pr-4 text-white ring-1 ring-inset ring-slate-800 placeholder:text-slate-600 focus:ring-2 focus:ring-inset focus:ring-emerald-500 text-sm sm:text-base font-bold transition-all"
                  oninput="handleCustomInput(this.value)">
         </div>
-        <p class="text-xs text-slate-500">Minimum donation threshold is <span id="min-threshold-label">TZS 5,000</span>.</p>
+        <p class="text-[11px] sm:text-xs text-slate-500">Minimum donation threshold is <span id="min-threshold-label">TZS 5,000</span>.</p>
       </div>
 
       <!-- Section: Payment Methods -->
-      <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-5 space-y-4">
-        <h3 class="text-sm font-bold text-slate-200 flex items-center gap-2">
-          <i data-lucide="credit-card" class="w-4 h-4 text-emerald-400"></i> Select Payment Method
+      <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4 sm:p-5 space-y-4">
+        <h3 class="text-xs sm:text-sm font-bold text-slate-200 flex items-center gap-2">
+          <i data-lucide="credit-card" class="w-4 h-4 text-emerald-400 shrink-0"></i> Select Payment Method
         </h3>
         
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3">
           <label class="cursor-pointer">
             <input type="radio" name="payment_method" value="M-Pesa" class="peer sr-only" checked onchange="updatePaymentMethod(this.value)">
-            <div class="p-3.5 rounded-xl border border-slate-800 bg-slate-950 peer-checked:border-emerald-500 peer-checked:bg-emerald-500/10 text-center flex flex-col items-center justify-center transition-all">
-              <span class="font-bold text-red-500 text-sm">M-Pesa</span>
-              <span class="text-[10px] text-slate-400 mt-0.5">Vodacom Tanzania</span>
+            <div class="p-3 sm:p-3.5 rounded-xl border border-slate-800 bg-slate-950 peer-checked:border-emerald-500 peer-checked:bg-emerald-500/10 text-center flex flex-col items-center justify-center transition-all h-full">
+              <span class="font-bold text-red-500 text-xs sm:text-sm">M-Pesa</span>
+              <span class="text-[9px] sm:text-[10px] text-slate-400 mt-0.5">Vodacom Tanzania</span>
             </div>
           </label>
 
           <label class="cursor-pointer">
-            <input type="radio" name="payment_method" value="Tigo Pesa" class="peer sr-only" onchange="updatePaymentMethod(this.value)">
-            <div class="p-3.5 rounded-xl border border-slate-800 bg-slate-950 peer-checked:border-emerald-500 peer-checked:bg-emerald-500/10 text-center flex flex-col items-center justify-center transition-all">
-              <span class="font-bold text-sky-400 text-sm">PayPal</span>
-              <span class="text-[10px] text-slate-400 mt-0.5">PayPal DPO</span>
+            <input type="radio" name="payment_method" value="PayPal" class="peer sr-only" onchange="updatePaymentMethod(this.value)">
+            <div class="p-3 sm:p-3.5 rounded-xl border border-slate-800 bg-slate-950 peer-checked:border-emerald-500 peer-checked:bg-emerald-500/10 text-center flex flex-col items-center justify-center transition-all h-full">
+              <span class="font-bold text-sky-400 text-xs sm:text-sm">PayPal</span>
+              <span class="text-[9px] sm:text-[10px] text-slate-400 mt-0.5">PayPal DPO</span>
             </div>
           </label>
 
           <label class="cursor-pointer">
             <input type="radio" name="payment_method" value="Airtel Money" class="peer sr-only" onchange="updatePaymentMethod(this.value)">
-            <div class="p-3.5 rounded-xl border border-slate-800 bg-slate-950 peer-checked:border-emerald-500 peer-checked:bg-emerald-500/10 text-center flex flex-col items-center justify-center transition-all">
-              <span class="font-bold text-rose-500 text-sm">Airtel Money</span>
-              <span class="text-[10px] text-slate-400 mt-0.5">Airtel Tanzania</span>
+            <div class="p-3 sm:p-3.5 rounded-xl border border-slate-800 bg-slate-950 peer-checked:border-emerald-500 peer-checked:bg-emerald-500/10 text-center flex flex-col items-center justify-center transition-all h-full">
+              <span class="font-bold text-rose-500 text-xs sm:text-sm">Airtel Money</span>
+              <span class="text-[9px] sm:text-[10px] text-slate-400 mt-0.5">Airtel Tanzania</span>
             </div>
           </label>
 
           <label class="cursor-pointer">
             <input type="radio" name="payment_method" value="Mixx by Yas" class="peer sr-only" onchange="updatePaymentMethod(this.value)">
-            <div class="p-3.5 rounded-xl border border-slate-800 bg-slate-950 peer-checked:border-emerald-500 peer-checked:bg-emerald-500/10 text-center flex flex-col items-center justify-center transition-all">
-              <span class="font-bold text-amber-400 text-sm">Mixx by Yas</span>
-              <span class="text-[10px] text-slate-400 mt-0.5">Yas Tanzania</span>
+            <div class="p-3 sm:p-3.5 rounded-xl border border-slate-800 bg-slate-950 peer-checked:border-emerald-500 peer-checked:bg-emerald-500/10 text-center flex flex-col items-center justify-center transition-all h-full">
+              <span class="font-bold text-amber-400 text-xs sm:text-sm">Mixx by Yas</span>
+              <span class="text-[9px] sm:text-[10px] text-slate-400 mt-0.5">Yas Tanzania</span>
             </div>
           </label>
 
           <label class="cursor-pointer">
             <input type="radio" name="payment_method" value="HaloPesa" class="peer sr-only" onchange="updatePaymentMethod(this.value)">
-            <div class="p-3.5 rounded-xl border border-slate-800 bg-slate-950 peer-checked:border-emerald-500 peer-checked:bg-emerald-500/10 text-center flex flex-col items-center justify-center transition-all">
-              <span class="font-bold text-orange-400 text-sm">HaloPesa</span>
-              <span class="text-[10px] text-slate-400 mt-0.5">Halotel Tanzania</span>
+            <div class="p-3 sm:p-3.5 rounded-xl border border-slate-800 bg-slate-950 peer-checked:border-emerald-500 peer-checked:bg-emerald-500/10 text-center flex flex-col items-center justify-center transition-all h-full">
+              <span class="font-bold text-orange-400 text-xs sm:text-sm">HaloPesa</span>
+              <span class="text-[9px] sm:text-[10px] text-slate-400 mt-0.5">Halotel Tanzania</span>
             </div>
           </label>
 
           <label class="cursor-pointer">
             <input type="radio" name="payment_method" value="Card / Bank Wire" class="peer sr-only" onchange="updatePaymentMethod(this.value)">
-            <div class="p-3.5 rounded-xl border border-slate-800 bg-slate-950 peer-checked:border-emerald-500 peer-checked:bg-emerald-500/10 text-center flex flex-col items-center justify-center transition-all">
-              <span class="font-bold text-emerald-400 text-sm">Card / Bank</span>
-              <span class="text-[10px] text-slate-400 mt-0.5">Visa / MasterCard / Swift</span>
+            <div class="p-3 sm:p-3.5 rounded-xl border border-slate-800 bg-slate-950 peer-checked:border-emerald-500 peer-checked:bg-emerald-500/10 text-center flex flex-col items-center justify-center transition-all h-full">
+              <span class="font-bold text-emerald-400 text-xs sm:text-sm">Card / Bank</span>
+              <span class="text-[9px] sm:text-[10px] text-slate-400 mt-0.5">Visa / MasterCard</span>
             </div>
           </label>
         </div>
@@ -160,20 +171,20 @@
     </section>
 
     <!-- Right Column: Budget Simulation & Program Allocation (5 Cols) -->
-    <section class="lg:col-span-5 sticky top-6 space-y-6">
+    <section class="lg:col-span-5 lg:sticky lg:top-6 space-y-6">
 
       <!-- Financial Calculation Card -->
-      <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 backdrop-blur-xl shadow-2xl space-y-6">
+      <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 sm:p-6 backdrop-blur-xl shadow-2xl space-y-5 sm:space-y-6">
 
-        <div class="border-b border-slate-800 pb-4 flex items-center justify-between">
-          <h2 class="text-lg font-extrabold text-white flex items-center gap-2">
-            <i data-lucide="calculator" class="w-5 h-5 text-emerald-400"></i> Budget Breakdown
+        <div class="border-b border-slate-800 pb-3.5 sm:pb-4 flex items-center justify-between">
+          <h2 class="text-base sm:text-lg font-extrabold text-white flex items-center gap-2">
+            <i data-lucide="calculator" class="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400 shrink-0"></i> Budget Breakdown
           </h2>
-          <span class="text-xs bg-slate-800 text-emerald-400 px-3 py-1 rounded-full font-bold border border-slate-700" id="selected-method-badge">M-Pesa</span>
+          <span class="text-[11px] sm:text-xs bg-slate-800 text-emerald-400 px-2.5 py-1 rounded-full font-bold border border-slate-700" id="selected-method-badge">M-Pesa</span>
         </div>
 
         <!-- Simulation Calculations -->
-        <div class="space-y-3 text-sm">
+        <div class="space-y-2.5 sm:space-y-3 text-xs sm:text-sm">
           <div class="flex justify-between items-center">
             <span class="text-slate-400">Base Contribution</span>
             <span class="font-bold text-white" id="summary-donation">TZS 50,000</span>
@@ -182,7 +193,7 @@
           <div class="flex justify-between items-center">
             <span class="text-slate-400 flex items-center gap-1.5">
               Processing Fee
-              <i data-lucide="info" class="w-3.5 h-3.5 text-slate-500" title="Standard payment gateway fee (1.5%)"></i>
+              <i data-lucide="info" class="w-3.5 h-3.5 text-slate-500 shrink-0" title="Standard payment gateway fee (1.5%)"></i>
             </span>
             <span class="font-semibold text-slate-300" id="summary-fee">TZS 750</span>
           </div>
@@ -192,35 +203,35 @@
             <span class="font-semibold text-slate-300" id="summary-vat">TZS 135</span>
           </div>
 
-          <div class="border-t border-slate-800 pt-3 flex justify-between items-center text-base">
+          <div class="border-t border-slate-800 pt-3 flex justify-between items-center text-sm sm:text-base">
             <span class="font-bold text-slate-200">Total Payable Amount</span>
-            <span class="font-extrabold text-emerald-400 text-xl" id="summary-total">TZS 50,885</span>
+            <span class="font-extrabold text-emerald-400 text-lg sm:text-xl" id="summary-total">TZS 50,885</span>
           </div>
         </div>
 
         <!-- Net Funding Box -->
-        <div class="bg-emerald-500/10 border border-emerald-500/20 rounded-xl p-4 text-xs space-y-1">
-          <div class="flex justify-between items-center font-bold text-emerald-300">
+        <div class="bg-emerald-500/10 border border-emerald-500/20 rounded-xl p-3.5 sm:p-4 text-xs space-y-1">
+          <div class="flex justify-between items-center font-bold text-emerald-300 text-[11px] sm:text-xs">
             <span>Direct Field Funding Received:</span>
-            <span class="font-black text-sm text-emerald-200" id="summary-received">TZS 50,000</span>
+            <span class="font-black text-xs sm:text-sm text-emerald-200" id="summary-received">TZS 50,000</span>
           </div>
-          <p class="text-slate-400 leading-relaxed pt-1">
+          <p class="text-[10px] sm:text-xs text-slate-400 leading-relaxed pt-0.5">
             * 100% of your donation is directly allocated to field operations below.
           </p>
         </div>
 
         <!-- Dynamic Programme Pillar Allocation Breakdown -->
-        <div class="border-t border-slate-800 pt-5 space-y-3">
-          <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center justify-between">
+        <div class="border-t border-slate-800 pt-4 sm:pt-5 space-y-3">
+          <h3 class="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center justify-between">
             <span>TAPHP Programme Pillars Impact</span>
             <span class="text-[10px] text-emerald-400 font-normal">Real-time split</span>
           </h3>
 
-          <div class="space-y-2.5 max-h-56 overflow-y-auto pr-1 text-xs text-slate-300">
+          <div class="space-y-2.5 max-h-48 sm:max-h-56 overflow-y-auto pr-1 text-xs text-slate-300 custom-scrollbar">
             <!-- Sustainable Agriculture -->
             <div class="space-y-1">
-              <div class="flex justify-between text-[11px]">
-                <span class="flex items-center gap-1.5"><i data-lucide="sprout" class="w-3.5 h-3.5 text-emerald-400"></i> Sustainable Agriculture (20%)</span>
+              <div class="flex justify-between text-[10px] sm:text-[11px]">
+                <span class="flex items-center gap-1.5"><i data-lucide="sprout" class="w-3.5 h-3.5 text-emerald-400 shrink-0"></i> Sustainable Agriculture (20%)</span>
                 <span class="font-semibold text-slate-200" id="alloc-agri">TZS 10,000</span>
               </div>
               <div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
@@ -230,8 +241,8 @@
 
             <!-- Livestock & Pastoral Development -->
             <div class="space-y-1">
-              <div class="flex justify-between text-[11px]">
-                <span class="flex items-center gap-1.5"><i data-lucide="footprints" class="w-3.5 h-3.5 text-amber-400"></i> Livestock & Pastoral Dev (18%)</span>
+              <div class="flex justify-between text-[10px] sm:text-[11px]">
+                <span class="flex items-center gap-1.5"><i data-lucide="footprints" class="w-3.5 h-3.5 text-amber-400 shrink-0"></i> Livestock & Pastoral Dev (18%)</span>
                 <span class="font-semibold text-slate-200" id="alloc-livestock">TZS 9,000</span>
               </div>
               <div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
@@ -241,8 +252,8 @@
 
             <!-- Water & Irrigation -->
             <div class="space-y-1">
-              <div class="flex justify-between text-[11px]">
-                <span class="flex items-center gap-1.5"><i data-lucide="droplets" class="w-3.5 h-3.5 text-sky-400"></i> Water & Irrigation (15%)</span>
+              <div class="flex justify-between text-[10px] sm:text-[11px]">
+                <span class="flex items-center gap-1.5"><i data-lucide="droplets" class="w-3.5 h-3.5 text-sky-400 shrink-0"></i> Water & Irrigation (15%)</span>
                 <span class="font-semibold text-slate-200" id="alloc-water">TZS 7,500</span>
               </div>
               <div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
@@ -252,8 +263,8 @@
 
             <!-- Climate Resilience -->
             <div class="space-y-1">
-              <div class="flex justify-between text-[11px]">
-                <span class="flex items-center gap-1.5"><i data-lucide="globe" class="w-3.5 h-3.5 text-teal-400"></i> Climate Resilience (12%)</span>
+              <div class="flex justify-between text-[10px] sm:text-[11px]">
+                <span class="flex items-center gap-1.5"><i data-lucide="globe" class="w-3.5 h-3.5 text-teal-400 shrink-0"></i> Climate Resilience (12%)</span>
                 <span class="font-semibold text-slate-200" id="alloc-climate">TZS 6,000</span>
               </div>
               <div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
@@ -263,8 +274,8 @@
 
             <!-- Farmer Training -->
             <div class="space-y-1">
-              <div class="flex justify-between text-[11px]">
-                <span class="flex items-center gap-1.5"><i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-indigo-400"></i> Farmer & Pastoralist Training (10%)</span>
+              <div class="flex justify-between text-[10px] sm:text-[11px]">
+                <span class="flex items-center gap-1.5"><i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-indigo-400 shrink-0"></i> Farmer & Pastoralist Training (10%)</span>
                 <span class="font-semibold text-slate-200" id="alloc-training">TZS 5,000</span>
               </div>
               <div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
@@ -274,8 +285,8 @@
 
             <!-- Equipment & Farm Tools -->
             <div class="space-y-1">
-              <div class="flex justify-between text-[11px]">
-                <span class="flex items-center gap-1.5"><i data-lucide="tractor" class="w-3.5 h-3.5 text-orange-400"></i> Equipment & Farm Tools (8%)</span>
+              <div class="flex justify-between text-[10px] sm:text-[11px]">
+                <span class="flex items-center gap-1.5"><i data-lucide="tractor" class="w-3.5 h-3.5 text-orange-400 shrink-0"></i> Equipment & Farm Tools (8%)</span>
                 <span class="font-semibold text-slate-200" id="alloc-equipment">TZS 4,000</span>
               </div>
               <div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
@@ -285,8 +296,8 @@
 
             <!-- Community Engagement -->
             <div class="space-y-1">
-              <div class="flex justify-between text-[11px]">
-                <span class="flex items-center gap-1.5"><i data-lucide="users" class="w-3.5 h-3.5 text-pink-400"></i> Community Engagement (5%)</span>
+              <div class="flex justify-between text-[10px] sm:text-[11px]">
+                <span class="flex items-center gap-1.5"><i data-lucide="users" class="w-3.5 h-3.5 text-pink-400 shrink-0"></i> Community Engagement (5%)</span>
                 <span class="font-semibold text-slate-200" id="alloc-community">TZS 2,500</span>
               </div>
               <div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
@@ -296,8 +307,8 @@
 
             <!-- Logistics & Operations -->
             <div class="space-y-1">
-              <div class="flex justify-between text-[11px]">
-                <span class="flex items-center gap-1.5"><i data-lucide="truck" class="w-3.5 h-3.5 text-purple-400"></i> Logistics & Field Operations (4%)</span>
+              <div class="flex justify-between text-[10px] sm:text-[11px]">
+                <span class="flex items-center gap-1.5"><i data-lucide="truck" class="w-3.5 h-3.5 text-purple-400 shrink-0"></i> Logistics & Field Operations (4%)</span>
                 <span class="font-semibold text-slate-200" id="alloc-logistics">TZS 2,000</span>
               </div>
               <div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
@@ -307,8 +318,8 @@
 
             <!-- Monitoring & Impact -->
             <div class="space-y-1">
-              <div class="flex justify-between text-[11px]">
-                <span class="flex items-center gap-1.5"><i data-lucide="bar-chart-3" class="w-3.5 h-3.5 text-cyan-400"></i> Monitoring & Impact Assessment (3%)</span>
+              <div class="flex justify-between text-[10px] sm:text-[11px]">
+                <span class="flex items-center gap-1.5"><i data-lucide="bar-chart-3" class="w-3.5 h-3.5 text-cyan-400 shrink-0"></i> Monitoring & Impact Assessment (3%)</span>
                 <span class="font-semibold text-slate-200" id="alloc-monitoring">TZS 1,500</span>
               </div>
               <div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
@@ -318,8 +329,8 @@
 
             <!-- Programme Administration -->
             <div class="space-y-1">
-              <div class="flex justify-between text-[11px]">
-                <span class="flex items-center gap-1.5"><i data-lucide="building-2" class="w-3.5 h-3.5 text-slate-400"></i> Programme Administration (3%)</span>
+              <div class="flex justify-between text-[10px] sm:text-[11px]">
+                <span class="flex items-center gap-1.5"><i data-lucide="building-2" class="w-3.5 h-3.5 text-slate-400 shrink-0"></i> Programme Administration (3%)</span>
                 <span class="font-semibold text-slate-200" id="alloc-admin">TZS 1,500</span>
               </div>
               <div class="w-full bg-slate-800 h-1 rounded-full overflow-hidden">
@@ -331,14 +342,14 @@
         </div>
 
         <!-- Action Button -->
-        <button type="button" onclick="confirmPayment()" class="w-full bg-emerald-500 hover:bg-emerald-400 active:bg-emerald-600 text-slate-950 font-extrabold py-4 px-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 text-base">
+        <button type="button" onclick="confirmPayment()" class="w-full bg-emerald-500 hover:bg-emerald-400 active:bg-emerald-600 text-slate-950 font-extrabold py-3.5 sm:py-4 px-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 text-sm sm:text-base cursor-pointer">
           <span>Complete Contribution</span>
-          <i data-lucide="arrow-right" class="w-5 h-5"></i>
+          <i data-lucide="arrow-right" class="w-4 h-4 sm:w-5 sm:h-5 shrink-0"></i>
         </button>
 
         <div class="text-center">
-          <p class="text-[11px] text-slate-500 flex items-center justify-center gap-1">
-            <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-500"></i> Encrypted 256-bit Secure Donation Channel
+          <p class="text-[10px] sm:text-[11px] text-slate-500 flex items-center justify-center gap-1">
+            <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-500 shrink-0"></i> Encrypted 256-bit Secure Donation Channel
           </p>
         </div>
 
@@ -348,7 +359,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="mt-16 text-center text-xs text-slate-600 border-t border-slate-900 pt-8">
+  <footer class="mt-12 sm:mt-16 text-center text-[11px] sm:text-xs text-slate-600 border-t border-slate-900 pt-6 sm:pt-8 pb-4">
     <p>&copy; 2026 Tanzania Agricultural & Pastoral Heritage Programme (TAPHP). All rights reserved.</p>
   </footer>
 
@@ -416,26 +427,26 @@
       grid.innerHTML = '';
 
       const presets = presetsData[currentCurrency];
-      presets.forEach((preset, index) => {
+      presets.forEach((preset) => {
         const isPopular = preset.popular;
         const button = document.createElement('button');
         button.type = 'button';
         button.onclick = function() { selectPreset(preset.amount, this); };
 
         if (isPopular) {
-          button.className = 'bento-card p-4 rounded-2xl border border-emerald-500/40 bg-emerald-500/10 hover:bg-emerald-500/20 text-left flex flex-col justify-between group relative overflow-hidden active';
+          button.className = 'bento-card p-3 sm:p-4 rounded-2xl border border-emerald-500/40 bg-emerald-500/10 hover:bg-emerald-500/20 text-left flex flex-col justify-between group relative overflow-hidden active';
           button.innerHTML = `
-            <span class="absolute top-0 right-0 bg-emerald-500 text-[9px] font-black text-slate-950 px-2 py-0.5 rounded-bl-lg uppercase tracking-wider">Popular</span>
-            <span class="text-xs text-emerald-300">${preset.label}</span>
-            <span class="text-lg font-extrabold text-white mt-2">${preset.amount.toLocaleString()}</span>
-            <span class="text-[10px] text-emerald-300/70 font-medium mt-1">${currentCurrency}</span>
+            <span class="absolute top-0 right-0 bg-emerald-500 text-[8px] sm:text-[9px] font-black text-slate-950 px-1.5 sm:px-2 py-0.5 rounded-bl-lg uppercase tracking-wider">Popular</span>
+            <span class="text-[11px] sm:text-xs text-emerald-300 font-medium">${preset.label}</span>
+            <span class="text-base sm:text-lg font-extrabold text-white mt-1.5 sm:mt-2 truncate">${preset.amount.toLocaleString()}</span>
+            <span class="text-[9px] sm:text-[10px] text-emerald-300/70 font-medium mt-0.5 sm:mt-1">${currentCurrency}</span>
           `;
         } else {
-          button.className = 'bento-card p-4 rounded-2xl border border-slate-800 bg-slate-900/60 hover:bg-slate-900 text-left flex flex-col justify-between group';
+          button.className = 'bento-card p-3 sm:p-4 rounded-2xl border border-slate-800 bg-slate-900/60 hover:bg-slate-900 text-left flex flex-col justify-between group';
           button.innerHTML = `
-            <span class="text-xs text-slate-400 group-hover:text-slate-300">${preset.label}</span>
-            <span class="text-lg font-extrabold text-white mt-2">${preset.amount.toLocaleString()}</span>
-            <span class="text-[10px] text-slate-500 font-medium mt-1">${currentCurrency}</span>
+            <span class="text-[11px] sm:text-xs text-slate-400 group-hover:text-slate-300 font-medium">${preset.label}</span>
+            <span class="text-base sm:text-lg font-extrabold text-white mt-1.5 sm:mt-2 truncate">${preset.amount.toLocaleString()}</span>
+            <span class="text-[9px] sm:text-[10px] text-slate-500 font-medium mt-0.5 sm:mt-1">${currentCurrency}</span>
           `;
         }
         grid.appendChild(button);
